@@ -8,7 +8,7 @@
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600" rel="stylesheet" />
 
-        @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/js/Parallax.js'])
+        @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/js/Parallax.js', 'resources/js/SmoothScroll.js'])
 
         <style>
             .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
@@ -19,13 +19,13 @@
 <body class="antialiased h-screen w-full relative overflow-hidden">
     <div class="absolute inset-0 WelcomePagebg-image blur-lg scale-105"></div>
         
-    <div class="absolute inset-20 border-4 border-white/50 overflow-y-auto group no-scrollbar" style="scroll-snap-type: y mandatory; scroll-behavior: auto;">
+    <div class="absolute inset-20 border-4 border-white/50 overflow-y-auto group no-scrollbar scroll-smooth" id="scroll-container" style="scroll-snap-type: none;">
         
     <div class="absolute inset-0 WelcomePagebg-image"></div>
     
 
-    <!-- Navbar Component (absolute so it doesn't affect snap layout) -->
-    <div class="absolute top-0 left-0 right-0 z-40">
+    <!-- Navbar Component (fixed at top, doesn't affect scroll layout) -->
+    <div class="fixed top-0 left-0 right-0 z-40" style="margin-left: 5rem; margin-right: 5rem; margin-top: 5rem;">
         <x-navbar />
     </div>
 
@@ -34,12 +34,12 @@
         <img 
             src="{{ url(asset('img/TOGBText.png')) }}" 
             alt="Foreground Leaves" 
-            class="absolute top-[7%] left-1/2 transform -translate-x-1/2 w-full max-w-4xl Image-Float-Effect pointer-events-none"
+            class="absolute top-[2%] left-1/2 transform -translate-x-1/2 w-full max-w-4xl Image-Float-Effect pointer-events-none"
         >
     </div>
 
     <!-- TheOneGreenBear Head logo -->
-    <div class="h-full w-full flex flex-col items-center justify-center relative" style="scroll-snap-align: start; scroll-snap-stop: always;">
+    <div class="h-full w-full flex flex-col items-center justify-center relative" style="scroll-snap-align: start; scroll-snap-stop: normal;">
         
         <div class="p-6 parallax-logo relative z-20">
             <img 
@@ -60,7 +60,7 @@
             
             <a href="#" target="_blank" class="transition hover:scale-110">
                 <img class="bg-stone-950/50 p-3 hover:bg-blue-500 rounded-xl border border-white/10" 
-                    src="https://upload.wikimedia.org/wikipedia/commons/8/83/Steam_icon_logo.svg" 
+                    src="{{ asset('img/SteamLogo.png') }}" 
                     alt="Steam" 
                     style="max-width: 60px;">
             </a>
@@ -73,30 +73,43 @@
             </a>
         </div>
 
+        <!-- Scroll Down Arrow -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-30 animate-bounce">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+            </svg>
+        </div>
+
     </div>
 
-    <section class="relative h-full w-full box-border flex items-center justify-center p-8 md:p-24 snap-start bg-black/60 backdrop-blur-md" style="scroll-snap-align: start; scroll-snap-stop: always;">
+    <section class="relative h-full w-full box-border flex items-center justify-center p-8 md:p-24 snap-start bg-black/60 backdrop-blur-md" style="scroll-snap-align: start; scroll-snap-stop: normal;">
         <div class="max-w-3xl text-center">
             <h2 class="text-green-500 font-mono text-2xl mb-8 uppercase tracking-widest">I might kms</h2>
             <p class="text-white/90 font-mono text-lg leading-relaxed">
                 This is not a joke anymore
-                Deployment of <span class="text-green-400">TheOneGreenBear</span> he is really gonna do it
+                I swear to god <span class="text-green-400">TheOneGreenBear</span> he is really gonna do it!
             </p>
         </div>
     </section>
 
-    <section class="relative h-full w-full box-border flex items-center justify-center p-8 md:p-24 snap-start bg-black/60 backdrop-blur-md" style="scroll-snap-align: start; scroll-snap-stop: always;">
+     <section class="relative h-full w-full box-border flex items-center justify-center p-8 md:p-24 snap-start bg-black/60 backdrop-blur-md" style="scroll-snap-align: start; scroll-snap-stop: normal;">
         <div class="max-w-3xl text-center">
-            <h2 class="text-green-500 font-mono text-2xl mb-8 uppercase tracking-widest">Tactical Briefing</h2>
+            <h2 class="text-green-500 font-mono text-2xl mb-8 uppercase tracking-widest">Pussy!</h2>
             <p class="text-white/90 font-mono text-lg leading-relaxed">
-                This interface is optimized for high-fidelity communication. 
-                Deployment of <span class="text-green-400">The One Green Bear</span> assets is monitored. 
-                Ensure all protocols are followed during your session.
+                This pussy is like the matrix. 
+                Because <span class="text-green-400">TheOneGreenBear</span> is in that bitch and he can't get out. 
+            </p>
+        </div>
+    </section>
+
+    <section class="relative h-full w-full box-border flex items-center justify-center p-8 md:p-24 snap-start bg-black/60 backdrop-blur-md" style="scroll-snap-align: start; scroll-snap-stop: normal;">
+        <div class="max-w-3xl text-center">
+            <h2 class="text-green-500 font-mono text-2xl mb-8 uppercase tracking-widest">I need fentanyl</h2>
+            <p class="text-white/90 font-mono text-lg leading-relaxed">
+                Rome wasn't built in a day but this 9mm was! Give me the fentanyl now!
             </p>
         </div>
     </section>
 
     </div>
-
 </body>
-</html>
