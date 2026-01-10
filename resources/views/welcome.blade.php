@@ -73,26 +73,37 @@
             </a>
         </div>
 
-        <!-- Scroll Down Arrow -->
-        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-30 animate-bounce">
-            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-            </svg>
-        </div>
+        <!-- scroll down arrow -->
+        <x-scrolldown-arrow />
 
     </div>
 
-    <section class="relative h-full w-full box-border flex items-center justify-center p-8 md:p-24 snap-start bg-black/60 backdrop-blur-md" style="scroll-snap-align: start; scroll-snap-stop: normal;">
-        <div class="max-w-3xl text-center">
-            <h2 class="text-green-500 font-mono text-2xl mb-8 uppercase tracking-widest">I might kms</h2>
-            <p class="text-white/90 font-mono text-lg leading-relaxed">
-                This is not a joke anymore
-                I swear to god <span class="text-green-400">TheOneGreenBear</span> he is really gonna do it!
-            </p>
+    <section class="relative h-full w-full box-border flex items-center justify-center p-8 md:p-24 snap-start bg-black/80 backdrop-blur-md" style="scroll-snap-align: start; scroll-snap-stop: normal;">
+        <div class="w-screen h-9/10 text-center border border-white/10 rounded-lg overflow-hidden">
+            <div class="grid grid-cols-[60%_40%] h-full bg-white/5">
+                <div class="relative overflow-hidden flex items-center justify-center">
+                    <img 
+                        src="{{ asset('img/Gojo.png') }}" 
+                        alt="Gojo" 
+                        class="absolute bottom-0 left-1/2 -translate-x-1/2 w-auto max-h-full"
+                    >
+                </div>
+
+                <div class="flex flex-col items-center justify-center p-8">
+                    <h2 class="text-green-500 font-mono text-center text-2xl mb-8 uppercase tracking-widest">some other shit here</h2>
+                    <p class="text-white/90 font-mono text-lg leading-relaxed">
+                        This is not a joke anymore
+                        I swear to god <span class="text-green-400">TheOneGreenBear</span> he is really gonna do it!
+                    </p>
+                </div>
+            </div>
         </div>
+
+        <!-- scroll down arrow -->
+        <x-scrolldown-arrow />
     </section>
 
-     <section class="relative h-full w-full box-border flex items-center justify-center p-8 md:p-24 snap-start bg-black/60 backdrop-blur-md" style="scroll-snap-align: start; scroll-snap-stop: normal;">
+     <section class="relative h-full w-full box-border flex items-center justify-center p-8 md:p-24 snap-start bg-black/40 backdrop-blur-md" style="scroll-snap-align: start; scroll-snap-stop: normal;">
         <div class="max-w-3xl text-center">
             <h2 class="text-green-500 font-mono text-2xl mb-8 uppercase tracking-widest">Pussy!</h2>
             <p class="text-white/90 font-mono text-lg leading-relaxed">
@@ -100,6 +111,9 @@
                 Because <span class="text-green-400">TheOneGreenBear</span> is in that bitch and he can't get out. 
             </p>
         </div>
+
+         <!-- scroll down arrow -->
+        <x-scrolldown-arrow />
     </section>
 
     <section class="relative h-full w-full box-border flex items-center justify-center p-8 md:p-24 snap-start bg-black/60 backdrop-blur-md" style="scroll-snap-align: start; scroll-snap-stop: normal;">
