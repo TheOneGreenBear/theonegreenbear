@@ -6,11 +6,10 @@
         
     <x-navbar />
 
-
-    <div class="flex items-center justify-center min-h-screen p-4">
-        <div class="bg-stone-950/80 backdrop-blur-sm border border-white/10 rounded-lg p-8 w-full max-w-md shadow-2xl">
-                <x-layouts.auth>
-        <div class="flex flex-col h-full w-full flex items-center justify-center">
+    <div class="absolute inset-0 flex items-center justify-center p-4">
+        <div class="backdrop-blur-sm border border-white/10 rounded-lg shadow-2xl">
+        <x-layouts.auth>
+        <div class="">
             <x-auth-header :title="__('Create an account')" :description="__('Enter your details below to create your account')" />
 
             <!-- Session Status -->

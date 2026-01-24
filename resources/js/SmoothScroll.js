@@ -15,7 +15,7 @@
         const targetScroll = section.offsetTop;
         const startScroll = container.scrollTop;
         const distance = targetScroll - startScroll;
-        const duration = 1000; // 1 second smooth animation
+        const duration = 250; // 1 second smooth animation
         let startTime = null;
         
         function animate(currentTime) {
