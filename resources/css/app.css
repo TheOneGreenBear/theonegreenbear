@@ -23,6 +23,14 @@
     --color-zinc-900: #171717;
     --color-zinc-950: #0a0a0a;
 
+    --color-azukigray-50: #fafafa;
+    --color-azukigray-400: #a3a3a3;
+    --color-azukigray-500: #737373;
+    --color-azukigray-600: #525252;
+    --color-azukigray-700: #404040;
+    --color-azukigray-800: #262626;
+    --color-azukigray-900: #171717;
+
     --color-accent: var(--color-neutral-800);
     --color-accent-content: var(--color-neutral-800);
     --color-accent-foreground: var(--color-white);
@@ -88,7 +96,3 @@ select:focus[data-flux-control] {
     animation: float 8s ease-in-out infinite;
     will-change: transform;
 }
-
-/* \[:where(&)\]:size-4 {
-    @apply size-4;
-} */
