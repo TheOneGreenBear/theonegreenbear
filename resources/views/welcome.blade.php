@@ -13,6 +13,10 @@
         <style>
             .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
             .no-scrollbar::-webkit-scrollbar { display: none; }
+            .bear-swap img { transition: opacity 400ms ease-in-out; }
+            .bear-swap .bear-alt { opacity: 0; }
+            .bear-swap.is-alt .bear-main { opacity: 0; }
+            .bear-swap.is-alt .bear-alt { opacity: 1; }
         </style>
     </head>
     
@@ -82,11 +86,21 @@
         <div class="w-screen h-9/10 text-center border border-white/10 rounded-lg overflow-hidden">
             <div class="grid grid-cols-[60%_40%] h-full bg-white/5">
                 <div class="relative overflow-hidden flex items-center justify-center">
-                    <img 
-                        src="{{ asset('img/Gojo.png') }}" 
-                        alt="Gojo" 
-                        class="absolute bottom-0 left-1/2 -translate-x-1/2 w-auto max-h-full hover:scale-102 transition-transform duration-300"
+                    <div
+                        class="absolute inset-0 mx-auto my-auto h-full w-full object-contain translate-y-15 bear-swap cursor-pointer"
+                        onclick="this.classList.toggle('is-alt');"
                     >
+                        <img 
+                            src="{{ asset('img/GreenBearMan.png') }}" 
+                            alt="Green Bear Man" 
+                            class="absolute inset-0 mx-auto my-auto h-full w-full object-contain bear-main"
+                        >
+                        <img 
+                            src="{{ asset('img/GreenBearMan2.png') }}" 
+                            alt="Green Bear Man Alternate" 
+                            class="absolute inset-0 mx-auto my-auto h-full w-full object-contain bear-alt"
+                        >
+                    </div>
                 </div>
 
                 <div class="flex flex-col gap-2 p-2 h-full">
