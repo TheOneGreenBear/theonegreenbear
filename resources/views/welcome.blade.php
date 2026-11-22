@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Laravel</title>
+        <title>{{ config('app.name') }}</title>
 
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600" rel="stylesheet" />
@@ -191,10 +191,9 @@
 
      <section class="relative h-full w-full box-border flex items-center justify-center p-8 md:p-24 snap-start bg-black/40 backdrop-blur-md" style="scroll-snap-align: start; scroll-snap-stop: normal;">
         <div class="max-w-3xl text-center">
-            <h2 class="text-green-500 font-mono text-2xl mb-8 uppercase tracking-widest">Pussy!</h2>
+            <h2 class="text-green-500 font-mono text-2xl mb-8 uppercase tracking-widest">About me</h2>
             <p class="text-white/90 font-mono text-lg leading-relaxed">
-                This pussy is like the matrix. 
-                Because <span class="text-green-400">TheOneGreenBear</span> is in that bitch and he can't get out. 
+                Coming soon from <span class="text-green-400">TheOneGreenBear</span>.
             </p>
         </div>
 
@@ -204,9 +203,9 @@
 
     <section class="relative h-full w-full box-border flex items-center justify-center p-8 md:p-24 snap-start bg-black/60 backdrop-blur-md" style="scroll-snap-align: start; scroll-snap-stop: normal;">
         <div class="max-w-3xl text-center">
-            <h2 class="text-green-500 font-mono text-2xl mb-8 uppercase tracking-widest">I need fentanyl</h2>
+            <h2 class="text-green-500 font-mono text-2xl mb-8 uppercase tracking-widest">Contact</h2>
             <p class="text-white/90 font-mono text-lg leading-relaxed">
-                Rome wasn't built in a day but this 9mm was! Give me the fentanyl now!
+                Coming soon.
             </p>
         </div>
     </section>
