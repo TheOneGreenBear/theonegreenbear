@@ -10,7 +10,7 @@
 @endphp
 
 <div class="flex items-start gap-10 max-md:flex-col max-md:gap-6">
-    <nav class="flex w-full gap-1 md:w-[200px] md:flex-col max-md:overflow-x-auto">
+    <nav class="no-scrollbar flex w-full gap-1 md:w-[200px] md:flex-col max-md:overflow-x-auto">
         @foreach ($links as $link)
             @php($active = request()->routeIs($link['route']))
             <a
