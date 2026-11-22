@@ -76,6 +76,22 @@ select:focus[data-flux-control] {
     background-position: center;
 }
 
+.no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+/* Site palette for Flux components on the framed pages: teal buttons/links, dark text on teal. */
+.theme-greenbear {
+    --color-accent: #08a88a;
+    --color-accent-content: #08a88a;
+    --color-accent-foreground: #09090b;
+}
+
 #parallax-logo {
     will-change: transform;
 }

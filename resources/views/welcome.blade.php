@@ -11,8 +11,6 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
 
         <style>
-            .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-            .no-scrollbar::-webkit-scrollbar { display: none; }
             .bear-swap img { transition: opacity 400ms ease-in-out; }
             .bear-swap .bear-alt { opacity: 0; }
             .bear-swap.is-alt .bear-main { opacity: 0; }
