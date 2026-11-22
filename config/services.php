@@ -42,6 +42,14 @@ return [
         'username' => env('MAL_USERNAME'),
     ],
 
+    'spotify' => [
+        // App credentials from https://developer.spotify.com/dashboard
+        'client_id' => env('SPOTIFY_CLIENT_ID'),
+        'client_secret' => env('SPOTIFY_CLIENT_SECRET'),
+        // Must match a Redirect URI in the Spotify app. Defaults to this site's /spotify/callback.
+        'redirect' => env('SPOTIFY_REDIRECT_URI'),
+    ],
+
     'slack' => [
         'notifications' => [
             'bot_user_oauth_token' => env('SLACK_BOT_USER_OAUTH_TOKEN'),
