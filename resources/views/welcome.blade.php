@@ -110,7 +110,8 @@
                             Games that I play
                         </p>
                         <div class="absolute right-4 top-1/2 -translate-y-1/2 w-20 h-20">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 430 430"><path stroke="#08a88a" stroke-linejoin="round" stroke-width="12" d="M45 75c0-11.046 8.954-20 20-20h300c11.046 0 20 8.954 20 20v220c0 11.046-8.954 20-20 20H65c-11.046 0-20-8.954-20-20z"/><path stroke="#08a88a" stroke-linecap="round" stroke-linejoin="round" stroke-width="12" d="m185 315-5 60m65-60 5 60"/><path stroke="#08a88a" stroke-linecap="round" stroke-width="12" d="M285 375H145m240-120H45"/><circle cx="215" cy="285" r="10" fill="#08a88a"/></svg>
+                            <!-- Gamepad -->
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#08a88a" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="6" width="20" height="12" rx="6"/><path d="M6 12h4M8 10v4"/><circle cx="15" cy="11" r="0.8" fill="#08a88a"/><circle cx="17.5" cy="13" r="0.8" fill="#08a88a"/></svg>
                         </div>
                     </section>
 
@@ -120,7 +121,8 @@
                             My personal projects
                         </p>
                         <div class="absolute right-4 top-1/2 -translate-y-1/2 w-20 h-20">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 430 430"><path stroke="#08a88a" stroke-linejoin="round" stroke-width="12" d="M45 75c0-11.046 8.954-20 20-20h300c11.046 0 20 8.954 20 20v220c0 11.046-8.954 20-20 20H65c-11.046 0-20-8.954-20-20z"/><path stroke="#08a88a" stroke-linecap="round" stroke-linejoin="round" stroke-width="12" d="m185 315-5 60m65-60 5 60"/><path stroke="#08a88a" stroke-linecap="round" stroke-width="12" d="M285 375H145m240-120H45"/><circle cx="215" cy="285" r="10" fill="#08a88a"/></svg>
+                            <!-- Code brackets -->
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#08a88a" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5M14 4l-4 16"/></svg>
                         </div>
                     </section>
 
@@ -130,7 +132,8 @@
                             Gym progress
                         </p>
                         <div class="absolute right-4 top-1/2 -translate-y-1/2 w-20 h-20">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 430 430"><path stroke="#08a88a" stroke-linejoin="round" stroke-width="12" d="M45 75c0-11.046 8.954-20 20-20h300c11.046 0 20 8.954 20 20v220c0 11.046-8.954 20-20 20H65c-11.046 0-20-8.954-20-20z"/><path stroke="#08a88a" stroke-linecap="round" stroke-linejoin="round" stroke-width="12" d="m185 315-5 60m65-60 5 60"/><path stroke="#08a88a" stroke-linecap="round" stroke-width="12" d="M285 375H145m240-120H45"/><circle cx="215" cy="285" r="10" fill="#08a88a"/></svg>
+                            <!-- Dumbbell -->
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#08a88a" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="7" width="3" height="10" rx="1"/><rect x="17" y="7" width="3" height="10" rx="1"/><path d="M7 12h10M2 10v4M22 10v4M2 12h2M20 12h2"/></svg>
                         </div>
                     </section>
 
@@ -140,7 +143,8 @@
                            List of anime I've watched and currently watching.
                         </p>
                         <div class="absolute right-4 top-1/2 -translate-y-1/2 w-20 h-20">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 430 430"><path stroke="#08a88a" stroke-linejoin="round" stroke-width="12" d="M45 75c0-11.046 8.954-20 20-20h300c11.046 0 20 8.954 20 20v220c0 11.046-8.954 20-20 20H65c-11.046 0-20-8.954-20-20z"/><path stroke="#08a88a" stroke-linecap="round" stroke-linejoin="round" stroke-width="12" d="m185 315-5 60m65-60 5 60"/><path stroke="#08a88a" stroke-linecap="round" stroke-width="12" d="M285 375H145m240-120H45"/><circle cx="215" cy="285" r="10" fill="#08a88a"/></svg>
+                            <!-- TV with play button -->
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#08a88a" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M8 3l4 4 4-4M10 11v6l5-3z"/></svg>
                         </div>
                     </section>
 
@@ -150,7 +154,8 @@
                             My playlists and favorite songs.
                         </p>
                         <div class="absolute right-4 top-1/2 -translate-y-1/2 w-20 h-20">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 430 430"><path stroke="#08a88a" stroke-linejoin="round" stroke-width="12" d="M45 75c0-11.046 8.954-20 20-20h300c11.046 0 20 8.954 20 20v220c0 11.046-8.954 20-20 20H65c-11.046 0-20-8.954-20-20z"/><path stroke="#08a88a" stroke-linecap="round" stroke-linejoin="round" stroke-width="12" d="m185 315-5 60m65-60 5 60"/><path stroke="#08a88a" stroke-linecap="round" stroke-width="12" d="M285 375H145m240-120H45"/><circle cx="215" cy="285" r="10" fill="#08a88a"/></svg>
+                            <!-- Music note -->
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#08a88a" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
                         </div>
                     </section>
 
