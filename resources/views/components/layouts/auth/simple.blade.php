@@ -1,16 +1,15 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="dark">
-    <head>
-        @include('partials.head')
-    </head>
-    <body class="min-h-screen bg-white antialiased dark:bg-linear-to-b dark:from-neutral-950 dark:to-neutral-900">
-        <div class="bg-background flex flex-col items-center justify-center gap-6 p-6 md:p-10">
-            <div class="flex w-full max-w-sm flex-col gap-2">
-                <div class="flex flex-col gap-6">
-                    {{ $slot }}
-                </div>
-            </div>
+<x-layouts.site :title="$title ?? null">
+    <x-glass-panel class="w-full max-w-md p-8">
+        <a href="{{ route('home') }}" class="mx-auto mb-2 block w-fit transition hover:scale-105">
+            <img
+                src="{{ asset('img/TheOneGreenBearLogo.png') }}"
+                alt="{{ config('app.name') }}"
+                class="w-24 drop-shadow-[0_10px_25px_rgba(0,0,0,0.5)]"
+            >
+        </a>
+
+        <div class="flex flex-col gap-6">
+            {{ $slot }}
         </div>
-        @fluxScripts
-    </body>
-</html>
+    </x-glass-panel>
+</x-layouts.site>
