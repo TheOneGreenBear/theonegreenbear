@@ -49,9 +49,9 @@
                 <button type="submit" class="px-5 py-1.5 font-mono text-white/80 hover:text-white transition">Log out</button>
             </form>
           @else
-              <a href="{{ route('login') }}" class="px-5 py-1.5 text-white/80 hover:text-white transition font-mono">Log in</a>
+              <a href="{{ route('login') }}" class="hidden sm:inline-block px-5 py-1.5 text-white/80 hover:text-white transition font-mono">Log in</a>
               @if (Route::has('register'))
-                  <a href="{{ route('register') }}" class="px-5 py-1.5 font-mono text-white border border-white/40 rounded-sm hover:bg-white hover:text-black transition">Register</a>
+                  <a href="{{ route('register') }}" class="hidden sm:inline-block px-5 py-1.5 font-mono text-white border border-white/40 rounded-sm hover:bg-white hover:text-black transition">Register</a>
               @endif
           @endauth
       </div>
@@ -65,6 +65,14 @@
       <a href="#" class="block rounded-md px-3 py-2 text-base font-mono text-gray-300 hover:bg-white/5 hover:text-white">About me</a>
       <a href="#" class="block rounded-md px-3 py-2 text-base font-mono text-gray-300 hover:bg-white/5 hover:text-white">Projects</a>
       <a href="#" class="block rounded-md px-3 py-2 text-base font-mono text-gray-300 hover:bg-white/5 hover:text-white">Contact</a>
+      @guest
+        <div class="mt-2 border-t border-white/10 pt-2">
+          <a href="{{ route('login') }}" class="block rounded-md px-3 py-2 text-base font-mono text-gray-300 hover:bg-white/5 hover:text-white">Log in</a>
+          @if (Route::has('register'))
+            <a href="{{ route('register') }}" class="block rounded-md px-3 py-2 text-base font-mono text-gray-300 hover:bg-white/5 hover:text-white">Register</a>
+          @endif
+        </div>
+      @endguest
     </div>
   </div>
 </nav>

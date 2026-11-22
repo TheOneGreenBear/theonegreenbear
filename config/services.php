@@ -35,6 +35,13 @@ return [
         'steam_id' => env('STEAM_ID'),
     ],
 
+    'myanimelist' => [
+        // Client ID from https://myanimelist.net/apiconfig
+        'client_id' => env('MAL_CLIENT_ID'),
+        // Username whose anime list to show. The list must be public.
+        'username' => env('MAL_USERNAME'),
+    ],
+
     'slack' => [
         'notifications' => [
             'bot_user_oauth_token' => env('SLACK_BOT_USER_OAUTH_TOKEN'),

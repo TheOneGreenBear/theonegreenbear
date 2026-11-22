@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\AnimeController;
 use App\Http\Controllers\GamesController;
+use App\Models\AnimeEntry;
 use App\Models\SteamGame;
 use Illuminate\Support\Facades\Route;
 use Laravel\Fortify\Features;
@@ -9,10 +11,12 @@ use Livewire\Volt\Volt;
 Route::get('/', function () {
     return view('welcome', [
         'lastPlayed' => SteamGame::whereNotNull('last_played_at')->latest('last_played_at')->first(),
+        'nowWatching' => AnimeEntry::where('status', 'watching')->latest('list_updated_at')->first(),
     ]);
 })->name('home');
 
 Route::get('games', GamesController::class)->name('games');
+Route::get('anime', AnimeController::class)->name('anime');
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])

@@ -139,16 +139,20 @@
                         </div>
                     </section>
 
-                    <section class="relative bg-[#09090b] p-4 rounded-md w-full flex flex-col justify-end items-start flex-1 hover:bg-azukigray-400 transition hover:[&_h3]:text-[#09090b] hover:[&_p]:text-[#09090b]">
+                    <a href="{{ route('anime') }}" class="relative bg-[#09090b] p-4 rounded-md w-full flex flex-col justify-end items-start flex-1 hover:bg-azukigray-400 transition hover:[&_h3]:text-[#09090b] hover:[&_p]:text-[#09090b]">
                        <h3 class="text-white font-mono text-lg mb-1 uppercase tracking-wider transition-colors">MyAnimeList</h3>
                         <p class="text-white font-mono text-xs leading-relaxed opacity-80 transition-colors">
-                           List of anime I've watched and currently watching.
+                            @if ($nowWatching)
+                                Watching: {{ $nowWatching->title }}
+                            @else
+                                List of anime I've watched and currently watching.
+                            @endif
                         </p>
                         <div class="absolute right-4 top-1/2 -translate-y-1/2 w-20 h-20">
                             <!-- TV with play button -->
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#08a88a" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M8 3l4 4 4-4M10 11v6l5-3z"/></svg>
                         </div>
-                    </section>
+                    </a>
 
                     <section class="relative bg-[#09090b] p-4 rounded-md w-full flex flex-col justify-end items-start flex-1 hover:bg-azukigray-400 transition hover:[&_h3]:text-[#09090b] hover:[&_p]:text-[#09090b]">
                        <h3 class="text-white font-mono text-lg mb-1 uppercase tracking-wider transition-colors">Spotify</h3>

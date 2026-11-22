@@ -8,4 +8,4 @@ Artisan::command('inspire', function () {
     $this->comment(Inspiring::quote());
 })->purpose('Display an inspiring quote');
 
-Schedule::command('site:sync steam')->hourly()->withoutOverlapping();
+Schedule::command('site:sync')->hourly()->withoutOverlapping();
