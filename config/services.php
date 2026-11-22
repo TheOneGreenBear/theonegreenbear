@@ -28,6 +28,13 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'steam' => [
+        // Web API key from https://steamcommunity.com/dev/apikey
+        'key' => env('STEAM_API_KEY'),
+        // 17-digit SteamID64 of the profile to show. Its game details must be public.
+        'steam_id' => env('STEAM_ID'),
+    ],
+
     'slack' => [
         'notifications' => [
             'bot_user_oauth_token' => env('SLACK_BOT_USER_OAUTH_TOKEN'),

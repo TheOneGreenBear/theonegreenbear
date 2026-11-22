@@ -102,16 +102,20 @@
                 </div>
 
                 <div class="flex flex-col gap-2 p-2 h-full">
-                    <section class="relative bg-[#09090b] p-4 rounded-md w-full flex flex-col justify-end items-start flex-1 hover:bg-azukigray-400 transition hover:[&_h3]:text-[#09090b] hover:[&_p]:text-[#09090b]">
+                    <a href="{{ route('games') }}" class="relative bg-[#09090b] p-4 rounded-md w-full flex flex-col justify-end items-start flex-1 hover:bg-azukigray-400 transition hover:[&_h3]:text-[#09090b] hover:[&_p]:text-[#09090b]">
                         <h3 class="text-white font-mono text-lg mb-1 uppercase tracking-wider transition-colors">Games</h3>
                         <p class="text-white font-mono text-xs leading-relaxed opacity-80 transition-colors">
-                            Games that I play
+                            @if ($lastPlayed)
+                                Last played: {{ $lastPlayed->name }}
+                            @else
+                                Games that I play
+                            @endif
                         </p>
                         <div class="absolute right-4 top-1/2 -translate-y-1/2 w-20 h-20">
                             <!-- Gamepad -->
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#08a88a" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="6" width="20" height="12" rx="6"/><path d="M6 12h4M8 10v4"/><circle cx="15" cy="11" r="0.8" fill="#08a88a"/><circle cx="17.5" cy="13" r="0.8" fill="#08a88a"/></svg>
                         </div>
-                    </section>
+                    </a>
 
                     <section class="relative bg-[#09090b] p-4 rounded-md w-full flex flex-col justify-end items-start flex-1 hover:bg-azukigray-400 transition hover:[&_h3]:text-[#09090b] hover:[&_p]:text-[#09090b]">
                         <h3 class="text-white font-mono text-lg mb-1 uppercase tracking-wider transition-colors">Projects</h3>
