@@ -3,9 +3,10 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rules\Password;
 use Illuminate\Validation\ValidationException;
+use Livewire\Attributes\Layout;
 use Livewire\Volt\Component;
 
-new class extends Component {
+new #[Layout('components.layouts.site')] class extends Component {
     public string $current_password = '';
     public string $password = '';
     public string $password_confirmation = '';
@@ -36,7 +37,8 @@ new class extends Component {
     }
 }; ?>
 
-<section class="w-full">
+<section class="w-full max-w-5xl">
+    <x-glass-panel class="p-6 md:p-10">
     @include('partials.settings-heading')
 
     <x-settings.layout :heading="__('Update password')" :subheading="__('Ensure your account is using a long, random password to stay secure')">
@@ -76,4 +78,5 @@ new class extends Component {
             </div>
         </form>
     </x-settings.layout>
+    </x-glass-panel>
 </section>

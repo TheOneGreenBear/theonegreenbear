@@ -7,10 +7,11 @@ use Laravel\Fortify\Features;
 use Laravel\Fortify\Fortify;
 use Livewire\Attributes\Locked;
 use Livewire\Attributes\Validate;
+use Livewire\Attributes\Layout;
 use Livewire\Volt\Component;
 use Symfony\Component\HttpFoundation\Response;
 
-new class extends Component {
+new #[Layout('components.layouts.site')] class extends Component {
     #[Locked]
     public bool $twoFactorEnabled;
 
@@ -177,7 +178,8 @@ new class extends Component {
     }
 } ?>
 
-<section class="w-full">
+<section class="w-full max-w-5xl">
+    <x-glass-panel class="p-6 md:p-10">
     @include('partials.settings-heading')
 
     <x-settings.layout
@@ -230,6 +232,7 @@ new class extends Component {
             @endif
         </div>
     </x-settings.layout>
+    </x-glass-panel>
 
     <flux:modal
         name="two-factor-setup-modal"

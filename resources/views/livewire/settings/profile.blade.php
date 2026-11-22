@@ -4,9 +4,10 @@ use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Validation\Rule;
+use Livewire\Attributes\Layout;
 use Livewire\Volt\Component;
 
-new class extends Component {
+new #[Layout('components.layouts.site')] class extends Component {
     public string $name = '';
     public string $email = '';
 
@@ -69,10 +70,26 @@ new class extends Component {
     }
 }; ?>
 
-<section class="w-full">
+<section class="w-full max-w-5xl">
+    <x-glass-panel class="p-6 md:p-10">
     @include('partials.settings-heading')
 
     <x-settings.layout :heading="__('Profile')" :subheading="__('Update your name and email address')">
+        <!-- Profile card -->
+        <div class="flex items-center gap-4 rounded-md border border-white/10 bg-white/5 p-4">
+            <span class="flex size-16 shrink-0 items-center justify-center rounded-full bg-[#08a88a] font-mono text-xl text-[#09090b]">
+                {{ auth()->user()->initials() }}
+            </span>
+
+            <div class="min-w-0">
+                <p class="truncate font-mono text-lg text-white">{{ auth()->user()->name }}</p>
+                <p class="truncate font-mono text-xs text-white/60">{{ auth()->user()->email }}</p>
+                @if (auth()->user()->created_at)
+                    <p class="mt-1 font-mono text-xs text-white/40">{{ __('Member since :date', ['date' => auth()->user()->created_at->format('F Y')]) }}</p>
+                @endif
+            </div>
+        </div>
+
         <form wire:submit="updateProfileInformation" class="my-6 w-full space-y-6">
             <flux:input wire:model="name" :label="__('Name')" type="text" required autofocus autocomplete="name" />
 
@@ -99,13 +116,11 @@ new class extends Component {
             </div>
 
             <div class="flex items-center gap-4">
-                <div class="flex items-center justify-end">
-                    <flux:button variant="primary" type="submit" class="w-full" data-test="update-profile-button">
-                        {{ __('Save') }}
-                    </flux:button>
-                </div>
+                <flux:button variant="primary" type="submit" class="font-mono uppercase tracking-wider" data-test="update-profile-button">
+                    {{ __('Save') }}
+                </flux:button>
 
-                <x-action-message class="me-3" on="profile-updated">
+                <x-action-message class="me-3 font-mono text-green-400" on="profile-updated">
                     {{ __('Saved.') }}
                 </x-action-message>
             </div>
@@ -113,4 +128,5 @@ new class extends Component {
 
         <livewire:settings.delete-user-form />
     </x-settings.layout>
+    </x-glass-panel>
 </section>

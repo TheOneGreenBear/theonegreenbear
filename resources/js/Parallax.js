@@ -1,32 +1,28 @@
 export function initParallax(elementId) {
     const logo = document.getElementById(elementId);
-    
+
     if (!logo) return;
 
+    // Where the mouse wants the logo to be, and where it currently is.
+    let targetX = 0;
+    let targetY = 0;
+    let currentX = 0;
+    let currentY = 0;
+
     window.addEventListener('mousemove', (e) => {
-        const x = (window.innerWidth / 2 - e.pageX) / 200;
-        const y = (window.innerHeight / 2 - e.pageY) / 200;
-        
-        logo.style.transform = `translateX(${x}px) translateY(${y}px)`;
+        targetX = (window.innerWidth / 2 - e.clientX) / 200;
+        targetY = (window.innerHeight / 2 - e.clientY) / 200;
     });
 
-    // 2. The Animation Loop (The "Smooth" part)
+    // Ease towards the target each frame ("lerp"). Lower factor = smoother/slower.
     function animate() {
-        // "Lerping" formula: current + (target - current) * factor
-        // 0.1 is the smoothness factor. Lower = slower/smoother.
-        currentX += (mouseX - currentX) * 0.1;
-        currentY += (mouseY - currentY) * 0.1;
+        currentX += (targetX - currentX) * 0.1;
+        currentY += (targetY - currentY) * 0.1;
 
         logo.style.transform = `translate3d(${currentX}px, ${currentY}px, 0)`;
 
-        // Keep the loop running
         requestAnimationFrame(animate);
     }
 
     animate();
 }
-
-// Auto-init if the script is loaded
-document.addEventListener('DOMContentLoaded', () => {
-    initParallax('parallax-logo');
-});
