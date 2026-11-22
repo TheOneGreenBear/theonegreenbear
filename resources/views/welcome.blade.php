@@ -154,16 +154,20 @@
                         </div>
                     </a>
 
-                    <section class="relative bg-[#09090b] p-4 rounded-md w-full flex flex-col justify-end items-start flex-1 hover:bg-azukigray-400 transition hover:[&_h3]:text-[#09090b] hover:[&_p]:text-[#09090b]">
+                    <a href="{{ route('spotify') }}" class="relative bg-[#09090b] p-4 rounded-md w-full flex flex-col justify-end items-start flex-1 hover:bg-azukigray-400 transition hover:[&_h3]:text-[#09090b] hover:[&_p]:text-[#09090b]">
                        <h3 class="text-white font-mono text-lg mb-1 uppercase tracking-wider transition-colors">Spotify</h3>
                         <p class="text-white font-mono text-xs leading-relaxed opacity-80 transition-colors">
-                            My playlists and favorite songs.
+                            @if ($listening)
+                                {{ $listening['label'] }}: {{ $listening['track']['name'] }} – {{ $listening['track']['artists'] }}
+                            @else
+                                My playlists and favorite songs.
+                            @endif
                         </p>
                         <div class="absolute right-4 top-1/2 -translate-y-1/2 w-20 h-20">
                             <!-- Music note -->
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#08a88a" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
                         </div>
-                    </section>
+                    </a>
 
                       <section class="rounded-md w-full flex gap-1 flex-1">
                         <div class="flex-1 bg-[#09090b] p-4 rounded-lg flex items-center justify-center text-white hover:bg-azukigray-400 hover:text-[#09090b] transition">
