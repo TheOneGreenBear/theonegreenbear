@@ -9,6 +9,9 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
+    /* Heavy display face for big headings and tile numbers (loaded on pages that use it). */
+    --font-display: 'Archivo Black', 'Arial Black', ui-sans-serif, system-ui, sans-serif;
+
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji', SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace;
 
     --color-zinc-50: #fafafa;
