@@ -117,16 +117,20 @@
                         </div>
                     </a>
 
-                    <section class="relative bg-[#09090b] p-4 rounded-md w-full flex flex-col justify-end items-start flex-1 hover:bg-azukigray-400 transition hover:[&_h3]:text-[#09090b] hover:[&_p]:text-[#09090b]">
+                    <a href="{{ route('projects') }}" class="relative bg-[#09090b] p-4 rounded-md w-full flex flex-col justify-end items-start flex-1 hover:bg-azukigray-400 transition hover:[&_h3]:text-[#09090b] hover:[&_p]:text-[#09090b]">
                         <h3 class="text-white font-mono text-lg mb-1 uppercase tracking-wider transition-colors">Projects</h3>
                         <p class="text-white font-mono text-xs leading-relaxed opacity-80 transition-colors">
-                            My personal projects
+                            @if ($latestProject)
+                                Latest: {{ $latestProject->displayName() }}
+                            @else
+                                My personal projects
+                            @endif
                         </p>
                         <div class="absolute right-4 top-1/2 -translate-y-1/2 w-20 h-20">
                             <!-- Code brackets -->
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#08a88a" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5M14 4l-4 16"/></svg>
                         </div>
-                    </section>
+                    </a>
 
                     <section class="relative bg-[#09090b] p-4 rounded-md w-full flex flex-col justify-end items-start flex-1 hover:bg-azukigray-400 transition hover:[&_h3]:text-[#09090b] hover:[&_p]:text-[#09090b]">
                         <h3 class="text-white font-mono text-lg mb-1 uppercase tracking-wider transition-colors">GYM</h3>

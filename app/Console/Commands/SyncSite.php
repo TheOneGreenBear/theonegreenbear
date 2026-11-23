@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use App\Actions\Sync\SyncAnimeList;
+use App\Actions\Sync\SyncGitHubRepos;
 use App\Actions\Sync\SyncSpotify;
 use App\Actions\Sync\SyncSteamGames;
 use Illuminate\Console\Command;
@@ -10,15 +11,16 @@ use Throwable;
 
 class SyncSite extends Command
 {
-    protected $signature = 'site:sync {provider? : Only sync one provider (steam, mal, spotify)}';
+    protected $signature = 'site:sync {provider? : Only sync one provider (steam, mal, spotify, github)}';
 
-    protected $description = 'Pull live data (games, anime, music) from external services into the database';
+    protected $description = 'Pull live data (games, anime, music, projects) from external services into the database';
 
     /** Provider name => invokable action returning a count, or null when not configured. */
     private const PROVIDERS = [
         'steam' => SyncSteamGames::class,
         'mal' => SyncAnimeList::class,
         'spotify' => SyncSpotify::class,
+        'github' => SyncGitHubRepos::class,
     ];
 
     public function handle(): int

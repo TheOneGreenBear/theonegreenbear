@@ -32,7 +32,7 @@
             <!-- Current: "bg-gray-950/50 text-white", Default: "text-gray-300 hover:bg-white/5 hover:text-white" -->
             <a href="{{ route('home') }}" @if (request()->routeIs('home')) aria-current="page" @endif class="rounded-md px-3 py-2 text-sm font-mono {{ request()->routeIs('home') ? 'bg-gray-950/50 text-white' : 'text-gray-300 hover:bg-white/5 hover:text-white' }}">Home</a>
             <a href="#" class="rounded-md px-3 py-2 text-sm font-mono text-gray-300 hover:bg-white/5 hover:text-white">About me</a>
-            <a href="#" class="rounded-md px-3 py-2 text-sm font-mono text-gray-300 hover:bg-white/5 hover:text-white">Projects</a>
+            <a href="{{ route('projects') }}" @if (request()->routeIs('projects')) aria-current="page" @endif class="rounded-md px-3 py-2 text-sm font-mono {{ request()->routeIs('projects') ? 'bg-gray-950/50 text-white' : 'text-gray-300 hover:bg-white/5 hover:text-white' }}">Projects</a>
             <a href="#" class="rounded-md px-3 py-2 text-sm font-mono text-gray-300 hover:bg-white/5 hover:text-white">Contact</a>
           </div>
         </div>
@@ -63,7 +63,7 @@
       <!-- Current: "bg-gray-950/50 text-white", Default: "text-gray-300 hover:bg-white/5 hover:text-white" -->
       <a href="{{ route('home') }}" @if (request()->routeIs('home')) aria-current="page" @endif class="block rounded-md px-3 py-2 text-base font-mono {{ request()->routeIs('home') ? 'bg-gray-950/50 text-white' : 'text-gray-300 hover:bg-white/5 hover:text-white' }}">Home</a>
       <a href="#" class="block rounded-md px-3 py-2 text-base font-mono text-gray-300 hover:bg-white/5 hover:text-white">About me</a>
-      <a href="#" class="block rounded-md px-3 py-2 text-base font-mono text-gray-300 hover:bg-white/5 hover:text-white">Projects</a>
+      <a href="{{ route('projects') }}" @if (request()->routeIs('projects')) aria-current="page" @endif class="block rounded-md px-3 py-2 text-base font-mono {{ request()->routeIs('projects') ? 'bg-gray-950/50 text-white' : 'text-gray-300 hover:bg-white/5 hover:text-white' }}">Projects</a>
       <a href="#" class="block rounded-md px-3 py-2 text-base font-mono text-gray-300 hover:bg-white/5 hover:text-white">Contact</a>
       @guest
         <div class="mt-2 border-t border-white/10 pt-2">
