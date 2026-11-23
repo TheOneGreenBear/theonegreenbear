@@ -1,3 +1,4 @@
-<div {{ $attributes->merge(['class' => 'min-w-0 rounded-lg border border-white/10 bg-[#09090b]/80 shadow-2xl backdrop-blur-md']) }}>
+{{-- Content area on the white page. Flat by default; pass border/shadow classes for a card (e.g. the auth forms). --}}
+<div {{ $attributes->merge(['class' => 'min-w-0 bg-paper']) }}>
     {{ $slot }}
 </div>

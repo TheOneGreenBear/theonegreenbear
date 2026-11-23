@@ -58,7 +58,7 @@
             </flux:button>
         </form>
 
-        <div class="space-x-1 text-center font-mono text-xs text-white/60 rtl:space-x-reverse">
+        <div class="space-x-1 text-center font-mono text-xs text-ink/60 rtl:space-x-reverse">
             <span>{{ __('Already have an account?') }}</span>
             <flux:link :href="route('login')" wire:navigate>{{ __('Log in') }}</flux:link>
         </div>
