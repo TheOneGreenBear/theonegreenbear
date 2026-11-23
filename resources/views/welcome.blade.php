@@ -21,13 +21,13 @@
 <body class="antialiased h-screen w-full relative overflow-hidden">
     <div class="absolute inset-0 WelcomePagebg-image blur-lg scale-105"></div>
         
-    <div class="absolute inset-20 border-4 border-white/50 overflow-y-auto group no-scrollbar scroll-smooth" id="scroll-container" style="scroll-snap-type: none;">
+    <div class="absolute inset-3 md:inset-20 border-4 border-white/50 overflow-y-auto group no-scrollbar scroll-smooth" id="scroll-container" style="scroll-snap-type: none;">
         
     <div class="absolute inset-0 WelcomePagebg-image"></div>
     
 
     <!-- Navbar Component (fixed at top, doesn't affect scroll layout) -->
-    <div class="fixed top-0 left-0 right-0 z-40" style="margin-left: 5rem; margin-right: 5rem; margin-top: 5rem;">
+    <div class="fixed z-40 top-3 left-3 right-3 md:top-20 md:left-20 md:right-20">
         <x-navbar />
     </div>
 
