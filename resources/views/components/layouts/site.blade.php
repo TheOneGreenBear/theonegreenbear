@@ -1,3 +1,10 @@
+@props([
+    'title' => null,
+    // Centre the content vertically (single forms like login). Content pages align to the top, so their
+    // heading and tabs stay put when the content below changes height.
+    'centered' => false,
+])
+
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -16,7 +23,7 @@
                     <x-navbar />
                 </div>
 
-                <main class="flex flex-1 items-center justify-center p-4 md:p-10">
+                <main class="flex flex-1 justify-center p-4 md:p-10 {{ $centered ? 'items-center' : 'items-start' }}">
                     {{ $slot }}
                 </main>
             </div>

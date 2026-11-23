@@ -1,5 +1,5 @@
-<x-layouts.site :title="$title ?? null">
-    <x-glass-panel class="w-full max-w-md p-8">
+<x-layouts.site :title="$title ?? null" centered>
+    <x-glass-panel class="w-full max-w-md rounded-sm border border-ink/10 bg-sand p-8 shadow-lg shadow-ink/5">
         <a href="{{ route('home') }}" class="mx-auto mb-2 block w-fit transition hover:scale-105">
             <img
                 src="{{ asset('img/TheOneGreenBearLogo.png') }}"
