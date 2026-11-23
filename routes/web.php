@@ -2,8 +2,10 @@
 
 use App\Http\Controllers\AnimeController;
 use App\Http\Controllers\GamesController;
+use App\Http\Controllers\ProjectsController;
 use App\Http\Controllers\SpotifyController;
 use App\Models\AnimeEntry;
+use App\Models\GithubRepo;
 use App\Models\ProviderSnapshot;
 use App\Models\SteamGame;
 use App\Services\Spotify\Listening;
@@ -17,9 +19,11 @@ Route::get('/', function () {
         'lastPlayed' => SteamGame::whereNotNull('last_played_at')->latest('last_played_at')->first(),
         'nowWatching' => AnimeEntry::where('status', 'watching')->latest('list_updated_at')->first(),
         'listening' => Listening::current(ProviderSnapshot::for(SpotifyClient::PROVIDER)),
+        'latestProject' => GithubRepo::latest('pushed_at')->first(),
     ]);
 })->name('home');
 
+Route::get('projects', ProjectsController::class)->name('projects');
 Route::get('games', GamesController::class)->name('games');
 Route::get('anime', AnimeController::class)->name('anime');
 Route::get('spotify', [SpotifyController::class, 'show'])->name('spotify');

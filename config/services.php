@@ -50,6 +50,13 @@ return [
         'redirect' => env('SPOTIFY_REDIRECT_URI'),
     ],
 
+    'github' => [
+        // Account whose public repositories are shown on /projects.
+        'username' => env('GITHUB_USERNAME'),
+        // Optional token (no scopes needed) to raise the API rate limit from 60 to 5,000 requests an hour.
+        'token' => env('GITHUB_TOKEN'),
+    ],
+
     'slack' => [
         'notifications' => [
             'bot_user_oauth_token' => env('SLACK_BOT_USER_OAUTH_TOKEN'),

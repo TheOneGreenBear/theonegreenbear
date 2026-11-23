@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Models\User;
+use App\Services\GitHub\GitHubClient;
 use App\Services\MyAnimeList\MyAnimeListClient;
 use App\Services\Spotify\SpotifyClient;
 use App\Services\Steam\SteamClient;
@@ -20,6 +21,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(SteamClient::class, fn () => SteamClient::fromConfig());
         $this->app->bind(MyAnimeListClient::class, fn () => MyAnimeListClient::fromConfig());
         $this->app->bind(SpotifyClient::class, fn () => SpotifyClient::fromConfig());
+        $this->app->bind(GitHubClient::class, fn () => GitHubClient::fromConfig());
     }
 
     /**

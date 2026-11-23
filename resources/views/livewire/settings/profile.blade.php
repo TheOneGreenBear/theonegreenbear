@@ -76,16 +76,16 @@ new #[Layout('components.layouts.site')] class extends Component {
 
     <x-settings.layout :heading="__('Profile')" :subheading="__('Update your name and email address')">
         <!-- Profile card -->
-        <div class="flex items-center gap-4 rounded-md border border-white/10 bg-white/5 p-4">
-            <span class="flex size-16 shrink-0 items-center justify-center rounded-full bg-[#08a88a] font-mono text-xl text-[#09090b]">
+        <div class="flex items-center gap-4 rounded-md border border-ink/10 bg-ink/5 p-4">
+            <span class="flex size-16 shrink-0 items-center justify-center rounded-full bg-azuki font-mono text-xl text-white">
                 {{ auth()->user()->initials() }}
             </span>
 
             <div class="min-w-0">
-                <p class="truncate font-mono text-lg text-white">{{ auth()->user()->name }}</p>
-                <p class="truncate font-mono text-xs text-white/60">{{ auth()->user()->email }}</p>
+                <p class="truncate font-mono text-lg text-ink">{{ auth()->user()->name }}</p>
+                <p class="truncate font-mono text-xs text-ink/60">{{ auth()->user()->email }}</p>
                 @if (auth()->user()->created_at)
-                    <p class="mt-1 font-mono text-xs text-white/40">{{ __('Member since :date', ['date' => auth()->user()->created_at->format('F Y')]) }}</p>
+                    <p class="mt-1 font-mono text-xs text-ink/40">{{ __('Member since :date', ['date' => auth()->user()->created_at->format('F Y')]) }}</p>
                 @endif
             </div>
         </div>
@@ -107,7 +107,7 @@ new #[Layout('components.layouts.site')] class extends Component {
                         </flux:text>
 
                         @if (session('status') === 'verification-link-sent')
-                            <flux:text class="mt-2 font-medium !dark:text-green-400 !text-green-600">
+                            <flux:text class="mt-2 font-medium !dark:text-azuki !text-green-600">
                                 {{ __('A new verification link has been sent to your email address.') }}
                             </flux:text>
                         @endif
@@ -120,7 +120,7 @@ new #[Layout('components.layouts.site')] class extends Component {
                     {{ __('Save') }}
                 </flux:button>
 
-                <x-action-message class="me-3 font-mono text-green-400" on="profile-updated">
+                <x-action-message class="me-3 font-mono text-azuki" on="profile-updated">
                     {{ __('Saved.') }}
                 </x-action-message>
             </div>

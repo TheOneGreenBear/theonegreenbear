@@ -9,6 +9,9 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
+    /* Heavy display face for big headings and tile numbers (loaded on pages that use it). */
+    --font-display: 'Archivo Black', 'Arial Black', ui-sans-serif, system-ui, sans-serif;
+
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji', SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace;
 
     --color-zinc-50: #fafafa;
@@ -22,6 +25,15 @@
     --color-zinc-800: #262626;
     --color-zinc-900: #171717;
     --color-zinc-950: #0a0a0a;
+
+    /* Site palette (light, Azuki-inspired): a warm greige page ("paper") with lighter cards ("sand")
+       that lift off it, charcoal ink and a brick-red accent. */
+    --color-paper: #e6e1d8;
+    --color-sand: #f7f4ee;
+    --color-sand-dark: #eeeae2;
+    --color-ink: #333333;
+    --color-azuki: #bb3f3f;
+    --color-azuki-dark: #8f2e2e;
 
     --color-azukigray-50: #fafafa;
     --color-azukigray-400: #a3a3a3;
@@ -70,10 +82,94 @@ select:focus[data-flux-control] {
     @apply outline-hidden ring-2 ring-accent ring-offset-2 ring-offset-accent-foreground;
 }
 
- .WelcomePagebg-image {
-    background-image: url('/public/img/Background.jpg');
-    background-size: cover;
-    background-position: center;
+/*
+ * Background: Japanese wave pattern (seigaiha) in charcoal line on sand.
+ * Generated SVG, no image files. Colours match --color-sand / --color-ink / --color-azuki.
+ */
+.bg-seigaiha {
+    background-color: #ebe7e0;
+    background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'60'%20height%3D'30'%3E%3Ccircle%20cx%3D'30'%20cy%3D'0'%20r%3D'30'%20fill%3D'%23EBE7E0'%20stroke%3D'%23333333'%20stroke-opacity%3D'0.16'%20stroke-width%3D'1.2'%2F%3E%3Ccircle%20cx%3D'30'%20cy%3D'0'%20r%3D'24'%20fill%3D'%23EBE7E0'%20stroke%3D'%23333333'%20stroke-opacity%3D'0.16'%20stroke-width%3D'1.2'%2F%3E%3Ccircle%20cx%3D'30'%20cy%3D'0'%20r%3D'18'%20fill%3D'%23EBE7E0'%20stroke%3D'%23333333'%20stroke-opacity%3D'0.16'%20stroke-width%3D'1.2'%2F%3E%3Ccircle%20cx%3D'30'%20cy%3D'0'%20r%3D'12'%20fill%3D'%23EBE7E0'%20stroke%3D'%23333333'%20stroke-opacity%3D'0.16'%20stroke-width%3D'1.2'%2F%3E%3Ccircle%20cx%3D'30'%20cy%3D'0'%20r%3D'6'%20fill%3D'%23EBE7E0'%20stroke%3D'%23333333'%20stroke-opacity%3D'0.16'%20stroke-width%3D'1.2'%2F%3E%3Ccircle%20cx%3D'0'%20cy%3D'15'%20r%3D'30'%20fill%3D'%23EBE7E0'%20stroke%3D'%23333333'%20stroke-opacity%3D'0.16'%20stroke-width%3D'1.2'%2F%3E%3Ccircle%20cx%3D'0'%20cy%3D'15'%20r%3D'24'%20fill%3D'%23EBE7E0'%20stroke%3D'%23333333'%20stroke-opacity%3D'0.16'%20stroke-width%3D'1.2'%2F%3E%3Ccircle%20cx%3D'0'%20cy%3D'15'%20r%3D'18'%20fill%3D'%23EBE7E0'%20stroke%3D'%23333333'%20stroke-opacity%3D'0.16'%20stroke-width%3D'1.2'%2F%3E%3Ccircle%20cx%3D'0'%20cy%3D'15'%20r%3D'12'%20fill%3D'%23EBE7E0'%20stroke%3D'%23333333'%20stroke-opacity%3D'0.16'%20stroke-width%3D'1.2'%2F%3E%3Ccircle%20cx%3D'0'%20cy%3D'15'%20r%3D'6'%20fill%3D'%23EBE7E0'%20stroke%3D'%23333333'%20stroke-opacity%3D'0.16'%20stroke-width%3D'1.2'%2F%3E%3Ccircle%20cx%3D'60'%20cy%3D'15'%20r%3D'30'%20fill%3D'%23EBE7E0'%20stroke%3D'%23333333'%20stroke-opacity%3D'0.16'%20stroke-width%3D'1.2'%2F%3E%3Ccircle%20cx%3D'60'%20cy%3D'15'%20r%3D'24'%20fill%3D'%23EBE7E0'%20stroke%3D'%23333333'%20stroke-opacity%3D'0.16'%20stroke-width%3D'1.2'%2F%3E%3Ccircle%20cx%3D'60'%20cy%3D'15'%20r%3D'18'%20fill%3D'%23EBE7E0'%20stroke%3D'%23333333'%20stroke-opacity%3D'0.16'%20stroke-width%3D'1.2'%2F%3E%3Ccircle%20cx%3D'60'%20cy%3D'15'%20r%3D'12'%20fill%3D'%23EBE7E0'%20stroke%3D'%23333333'%20stroke-opacity%3D'0.16'%20stroke-width%3D'1.2'%2F%3E%3Ccircle%20cx%3D'60'%20cy%3D'15'%20r%3D'6'%20fill%3D'%23EBE7E0'%20stroke%3D'%23333333'%20stroke-opacity%3D'0.16'%20stroke-width%3D'1.2'%2F%3E%3Ccircle%20cx%3D'30'%20cy%3D'30'%20r%3D'30'%20fill%3D'%23EBE7E0'%20stroke%3D'%23333333'%20stroke-opacity%3D'0.16'%20stroke-width%3D'1.2'%2F%3E%3Ccircle%20cx%3D'30'%20cy%3D'30'%20r%3D'24'%20fill%3D'%23EBE7E0'%20stroke%3D'%23333333'%20stroke-opacity%3D'0.16'%20stroke-width%3D'1.2'%2F%3E%3Ccircle%20cx%3D'30'%20cy%3D'30'%20r%3D'18'%20fill%3D'%23EBE7E0'%20stroke%3D'%23333333'%20stroke-opacity%3D'0.16'%20stroke-width%3D'1.2'%2F%3E%3Ccircle%20cx%3D'30'%20cy%3D'30'%20r%3D'12'%20fill%3D'%23EBE7E0'%20stroke%3D'%23333333'%20stroke-opacity%3D'0.16'%20stroke-width%3D'1.2'%2F%3E%3Ccircle%20cx%3D'30'%20cy%3D'30'%20r%3D'6'%20fill%3D'%23EBE7E0'%20stroke%3D'%23333333'%20stroke-opacity%3D'0.16'%20stroke-width%3D'1.2'%2F%3E%3C%2Fsvg%3E");
+    background-size: 60px 30px;
+}
+
+/* Home hero: ink mountains in front of a red sun, on a slightly lighter wave pattern. */
+.bg-hero-sun {
+    background-color: #ebe7e0;
+    background-image:
+        url("data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%201200%20300'%20preserveAspectRatio%3D'none'%3E%20%3Cpath%20d%3D'M0%20300%20L0%20190%20L140%20120%20L260%20175%20L420%2070%20L560%20160%20L700%2095%20L860%20180%20L1010%20110%20L1200%20185%20L1200%20300%20Z'%20fill%3D'%23333333'%20fill-opacity%3D'0.18'%2F%3E%20%3Cpath%20d%3D'M0%20300%20L0%20230%20L180%20170%20L330%20225%20L520%20150%20L690%20220%20L880%20160%20L1050%20230%20L1200%20200%20L1200%20300%20Z'%20fill%3D'%23333333'%20fill-opacity%3D'0.3'%2F%3E%20%3Cpath%20d%3D'M0%20300%20L0%20265%20L240%20225%20L470%20270%20L720%20230%20L960%20272%20L1200%20240%20L1200%20300%20Z'%20fill%3D'%23333333'%20fill-opacity%3D'0.55'%2F%3E%20%3C%2Fsvg%3E"),
+        radial-gradient(circle min(300px, 40vw) at 50% 55%, var(--color-azuki) 0 99%, transparent 100%),
+        url("data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'60'%20height%3D'30'%3E%3Ccircle%20cx%3D'30'%20cy%3D'0'%20r%3D'30'%20fill%3D'%23EBE7E0'%20stroke%3D'%23333333'%20stroke-opacity%3D'0.12'%20stroke-width%3D'1.2'%2F%3E%3Ccircle%20cx%3D'30'%20cy%3D'0'%20r%3D'24'%20fill%3D'%23EBE7E0'%20stroke%3D'%23333333'%20stroke-opacity%3D'0.12'%20stroke-width%3D'1.2'%2F%3E%3Ccircle%20cx%3D'30'%20cy%3D'0'%20r%3D'18'%20fill%3D'%23EBE7E0'%20stroke%3D'%23333333'%20stroke-opacity%3D'0.12'%20stroke-width%3D'1.2'%2F%3E%3Ccircle%20cx%3D'30'%20cy%3D'0'%20r%3D'12'%20fill%3D'%23EBE7E0'%20stroke%3D'%23333333'%20stroke-opacity%3D'0.12'%20stroke-width%3D'1.2'%2F%3E%3Ccircle%20cx%3D'30'%20cy%3D'0'%20r%3D'6'%20fill%3D'%23EBE7E0'%20stroke%3D'%23333333'%20stroke-opacity%3D'0.12'%20stroke-width%3D'1.2'%2F%3E%3Ccircle%20cx%3D'0'%20cy%3D'15'%20r%3D'30'%20fill%3D'%23EBE7E0'%20stroke%3D'%23333333'%20stroke-opacity%3D'0.12'%20stroke-width%3D'1.2'%2F%3E%3Ccircle%20cx%3D'0'%20cy%3D'15'%20r%3D'24'%20fill%3D'%23EBE7E0'%20stroke%3D'%23333333'%20stroke-opacity%3D'0.12'%20stroke-width%3D'1.2'%2F%3E%3Ccircle%20cx%3D'0'%20cy%3D'15'%20r%3D'18'%20fill%3D'%23EBE7E0'%20stroke%3D'%23333333'%20stroke-opacity%3D'0.12'%20stroke-width%3D'1.2'%2F%3E%3Ccircle%20cx%3D'0'%20cy%3D'15'%20r%3D'12'%20fill%3D'%23EBE7E0'%20stroke%3D'%23333333'%20stroke-opacity%3D'0.12'%20stroke-width%3D'1.2'%2F%3E%3Ccircle%20cx%3D'0'%20cy%3D'15'%20r%3D'6'%20fill%3D'%23EBE7E0'%20stroke%3D'%23333333'%20stroke-opacity%3D'0.12'%20stroke-width%3D'1.2'%2F%3E%3Ccircle%20cx%3D'60'%20cy%3D'15'%20r%3D'30'%20fill%3D'%23EBE7E0'%20stroke%3D'%23333333'%20stroke-opacity%3D'0.12'%20stroke-width%3D'1.2'%2F%3E%3Ccircle%20cx%3D'60'%20cy%3D'15'%20r%3D'24'%20fill%3D'%23EBE7E0'%20stroke%3D'%23333333'%20stroke-opacity%3D'0.12'%20stroke-width%3D'1.2'%2F%3E%3Ccircle%20cx%3D'60'%20cy%3D'15'%20r%3D'18'%20fill%3D'%23EBE7E0'%20stroke%3D'%23333333'%20stroke-opacity%3D'0.12'%20stroke-width%3D'1.2'%2F%3E%3Ccircle%20cx%3D'60'%20cy%3D'15'%20r%3D'12'%20fill%3D'%23EBE7E0'%20stroke%3D'%23333333'%20stroke-opacity%3D'0.12'%20stroke-width%3D'1.2'%2F%3E%3Ccircle%20cx%3D'60'%20cy%3D'15'%20r%3D'6'%20fill%3D'%23EBE7E0'%20stroke%3D'%23333333'%20stroke-opacity%3D'0.12'%20stroke-width%3D'1.2'%2F%3E%3Ccircle%20cx%3D'30'%20cy%3D'30'%20r%3D'30'%20fill%3D'%23EBE7E0'%20stroke%3D'%23333333'%20stroke-opacity%3D'0.12'%20stroke-width%3D'1.2'%2F%3E%3Ccircle%20cx%3D'30'%20cy%3D'30'%20r%3D'24'%20fill%3D'%23EBE7E0'%20stroke%3D'%23333333'%20stroke-opacity%3D'0.12'%20stroke-width%3D'1.2'%2F%3E%3Ccircle%20cx%3D'30'%20cy%3D'30'%20r%3D'18'%20fill%3D'%23EBE7E0'%20stroke%3D'%23333333'%20stroke-opacity%3D'0.12'%20stroke-width%3D'1.2'%2F%3E%3Ccircle%20cx%3D'30'%20cy%3D'30'%20r%3D'12'%20fill%3D'%23EBE7E0'%20stroke%3D'%23333333'%20stroke-opacity%3D'0.12'%20stroke-width%3D'1.2'%2F%3E%3Ccircle%20cx%3D'30'%20cy%3D'30'%20r%3D'6'%20fill%3D'%23EBE7E0'%20stroke%3D'%23333333'%20stroke-opacity%3D'0.12'%20stroke-width%3D'1.2'%2F%3E%3C%2Fsvg%3E");
+    background-size: 100% 32%, auto, 60px 30px;
+    background-position: bottom, center, top left;
+    background-repeat: no-repeat, no-repeat, repeat;
+}
+
+/* Tall, narrow screens: keep the mountains low instead of stretching them into spikes. */
+@media (max-width: 767px) {
+    .bg-hero-sun {
+        background-size: 100% 18%, auto, 60px 30px;
+    }
+}
+
+/* ---------------------------------------------------------------------------------------------
+ * Motion
+ * ------------------------------------------------------------------------------------------- */
+
+/* Cross-fade between pages (browsers without View Transitions simply load normally). */
+@view-transition {
+    navigation: auto;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+    animation-duration: 220ms;
+    animation-timing-function: ease;
+}
+
+/* The navbar keeps its own transition group, so it stays put while the page content fades. */
+.site-nav {
+    view-transition-name: site-nav;
+}
+
+/* Cards lift slightly on hover. */
+.card-lift {
+    transition: transform 250ms ease, box-shadow 250ms ease, border-color 250ms ease;
+}
+
+.card-lift:hover {
+    transform: translateY(-4px);
+    border-color: var(--color-azuki);
+    box-shadow: 0 14px 28px -14px rgb(51 51 51 / 0.35);
+}
+
+/* Tab panels: cards rise in one after another (--i is set per card). "backwards" only applies the
+   start state during the delay, so the hover lift still works once the animation has finished. */
+@keyframes rise-in {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+}
+
+.tab-enter .card-lift {
+    animation: rise-in 320ms ease-out backwards;
+    animation-delay: calc(var(--i, 0) * 30ms);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    @view-transition {
+        navigation: none;
+    }
+
+    .card-lift,
+    .tab-enter .card-lift {
+        animation: none;
+        transition: none;
+    }
+
+    .card-lift:hover {
+        transform: none;
+    }
 }
 
 .no-scrollbar {
@@ -85,11 +181,11 @@ select:focus[data-flux-control] {
     display: none;
 }
 
-/* Site palette for Flux components on the framed pages: teal buttons/links, dark text on teal. */
+/* Site palette for Flux components on the framed pages: red buttons/links with white text. */
 .theme-greenbear {
-    --color-accent: #08a88a;
-    --color-accent-content: #08a88a;
-    --color-accent-foreground: #09090b;
+    --color-accent: var(--color-azuki);
+    --color-accent-content: var(--color-azuki);
+    --color-accent-foreground: #ffffff;
 }
 
 #parallax-logo {
