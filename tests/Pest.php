@@ -45,3 +45,18 @@ function something()
 {
     // ..
 }
+
+/**
+ * Keys of the tab panels (data-tab-panel="…") that are not hidden in the given HTML.
+ *
+ * @return list<string>
+ */
+function visibleTabPanels(string $html): array
+{
+    preg_match_all('/data-tab-panel="([^"]*)"(\s+hidden)?/', $html, $matches, PREG_SET_ORDER);
+
+    return array_values(array_map(
+        fn (array $match) => $match[1],
+        array_filter($matches, fn (array $match) => empty($match[2])),
+    ));
+}

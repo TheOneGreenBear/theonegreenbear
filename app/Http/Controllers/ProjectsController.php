@@ -20,11 +20,11 @@ class ProjectsController extends Controller
             $language = null;
         }
 
-        $shown = $language ? $repos->where('language', $language) : $repos;
-
+        // Every filter is rendered up front so the language tabs can switch instantly in the browser.
         return view('projects', [
-            'featured' => $language ? collect() : $repos->filter->isFeatured()->values(),
-            'projects' => $language ? $shown->values() : $shown->reject->isFeatured()->values(),
+            'repos' => $repos,
+            'featured' => $repos->filter->isFeatured()->values(),
+            'others' => $repos->reject->isFeatured()->values(),
             'languages' => $languages,
             'language' => $language,
             'total' => $repos->count(),

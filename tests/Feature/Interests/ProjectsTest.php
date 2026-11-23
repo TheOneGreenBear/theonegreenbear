@@ -139,15 +139,23 @@ test('projects page filters by language', function () {
     storeRepo(1, 'php-app', ['language' => 'PHP']);
     storeRepo(2, 'java-app', ['language' => 'Java']);
 
-    $this->get(route('projects', ['language' => 'Java']))
-        ->assertOk()
-        ->assertSee('java app')
-        ->assertDontSee('php app');
+    // Every filter is rendered for instant switching; the URL decides which panel is visible.
+    $response = $this->get(route('projects', ['language' => 'Java']))->assertOk();
+    expect(visibleTabPanels($response->getContent()))->toBe(['Java']);
 
     // Unknown languages fall back to showing everything.
-    $this->get(route('projects', ['language' => 'Cobol']))
-        ->assertSee('java app')
-        ->assertSee('php app');
+    $response = $this->get(route('projects', ['language' => 'Cobol']))->assertOk();
+    expect(visibleTabPanels($response->getContent()))->toBe(['']);
+});
+
+test('each language panel lists only that language', function () {
+    storeRepo(1, 'php-app', ['language' => 'PHP']);
+    storeRepo(2, 'java-app', ['language' => 'Java']);
+
+    $html = $this->get(route('projects'))->getContent();
+    preg_match('/data-tab-panel="Java".*?(?=data-tab-panel=|$)/s', $html, $javaPanel);
+
+    expect($javaPanel[0])->toContain('java app')->not->toContain('php app');
 });
 
 test('welcome page tile shows the latest project', function () {
