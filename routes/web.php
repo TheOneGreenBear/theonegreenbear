@@ -1,6 +1,8 @@
 <?php
 
+use App\Actions\Sync\SiteSync;
 use App\Http\Controllers\AnimeController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\GamesController;
 use App\Http\Controllers\ProjectsController;
 use App\Http\Controllers\SpotifyController;
@@ -34,9 +36,14 @@ Route::middleware(['auth', 'can:site-owner'])->prefix('spotify')->name('spotify.
     Route::post('disconnect', [SpotifyController::class, 'disconnect'])->name('disconnect');
 });
 
-Route::view('dashboard', 'dashboard')
-    ->middleware(['auth', 'verified'])
-    ->name('dashboard');
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('dashboard', [DashboardController::class, 'show'])->name('dashboard');
+
+    Route::post('dashboard/sync/{provider}', [DashboardController::class, 'sync'])
+        ->middleware('can:site-owner')
+        ->whereIn('provider', SiteSync::providers())
+        ->name('dashboard.sync');
+});
 
 Route::middleware(['auth'])->group(function () {
     Route::redirect('settings', 'settings/profile');
