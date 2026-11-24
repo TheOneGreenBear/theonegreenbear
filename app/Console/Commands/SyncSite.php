@@ -2,12 +2,9 @@
 
 namespace App\Console\Commands;
 
-use App\Actions\Sync\SyncAnimeList;
-use App\Actions\Sync\SyncGitHubRepos;
-use App\Actions\Sync\SyncSpotify;
-use App\Actions\Sync\SyncSteamGames;
+use App\Actions\Sync\SiteSync;
+use App\Models\SyncRun;
 use Illuminate\Console\Command;
-use Throwable;
 
 class SyncSite extends Command
 {
@@ -15,42 +12,29 @@ class SyncSite extends Command
 
     protected $description = 'Pull live data (games, anime, music, projects) from external services into the database';
 
-    /** Provider name => invokable action returning a count, or null when not configured. */
-    private const PROVIDERS = [
-        'steam' => SyncSteamGames::class,
-        'mal' => SyncAnimeList::class,
-        'spotify' => SyncSpotify::class,
-        'github' => SyncGitHubRepos::class,
-    ];
-
-    public function handle(): int
+    public function handle(SiteSync $sync): int
     {
         $only = $this->argument('provider');
 
-        if ($only && ! array_key_exists($only, self::PROVIDERS)) {
-            $this->error("Unknown provider [{$only}]. Available: ".implode(', ', array_keys(self::PROVIDERS)));
+        if ($only && ! in_array($only, SiteSync::providers(), true)) {
+            $this->error("Unknown provider [{$only}]. Available: ".implode(', ', SiteSync::providers()));
 
             return self::INVALID;
         }
 
-        $providers = $only ? [$only => self::PROVIDERS[$only]] : self::PROVIDERS;
         $failed = false;
 
-        foreach ($providers as $name => $action) {
-            try {
-                $count = app($action)();
-            } catch (Throwable $e) {
-                // Keep going with the other providers; the old data stays in place.
-                report($e);
-                $this->error("{$name}: sync failed ({$e->getMessage()})");
-                $failed = true;
+        // Each provider runs on its own; a failure doesn't stop the others.
+        foreach ($only ? [$only] : SiteSync::providers() as $name) {
+            $run = $sync->run($name);
 
-                continue;
-            }
+            match ($run->status) {
+                SyncRun::SUCCEEDED => $this->info("{$name}: synced {$run->items} items"),
+                SyncRun::SKIPPED => $this->warn("{$name}: skipped, not configured"),
+                SyncRun::FAILED => $this->error("{$name}: sync failed ({$run->error})"),
+            };
 
-            $count === null
-                ? $this->warn("{$name}: skipped, not configured")
-                : $this->info("{$name}: synced {$count} items");
+            $failed = $failed || $run->failed();
         }
 
         return $failed ? self::FAILURE : self::SUCCESS;
