@@ -13,3 +13,6 @@ Schedule::command('site:sync mal')->hourly()->withoutOverlapping();
 Schedule::command('site:sync github')->hourly()->withoutOverlapping();
 // More often, so "now playing" stays roughly current.
 Schedule::command('site:sync spotify')->everyFiveMinutes()->withoutOverlapping();
+
+// Drops old sync history (see SyncRun::KEEP_DAYS).
+Schedule::command('model:prune')->daily();
