@@ -77,7 +77,7 @@ new #[Layout('components.layouts.site')] class extends Component {
     <x-settings.layout :heading="__('Profile')" :subheading="__('Update your name and email address')">
         <!-- Profile card -->
         <div class="flex items-center gap-4 rounded-md border border-ink/10 bg-ink/5 p-4">
-            <span class="flex size-16 shrink-0 items-center justify-center rounded-full bg-azuki font-mono text-xl text-white">
+            <span class="flex size-16 shrink-0 items-center justify-center rounded-full bg-azuki font-mono text-xl text-paper">
                 {{ auth()->user()->initials() }}
             </span>
 
@@ -107,7 +107,7 @@ new #[Layout('components.layouts.site')] class extends Component {
                         </flux:text>
 
                         @if (session('status') === 'verification-link-sent')
-                            <flux:text class="mt-2 font-medium !dark:text-azuki !text-green-600">
+                            <flux:text class="mt-2 font-medium !text-green-700">
                                 {{ __('A new verification link has been sent to your email address.') }}
                             </flux:text>
                         @endif

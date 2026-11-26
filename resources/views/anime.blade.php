@@ -36,7 +36,7 @@
         @else
             <!-- Status tabs: links work without JavaScript; Tabs.js switches panels in place without a reload. -->
             <div data-tabs="status"
-                 data-tab-active="bg-ink text-white"
+                 data-tab-active="bg-ink text-paper"
                  data-tab-idle="text-ink/70 hover:bg-ink/5 hover:text-ink">
                 <nav class="no-scrollbar mb-6 flex gap-1 overflow-x-auto" aria-label="{{ __('List status') }}">
                     @foreach (AnimeEntry::STATUSES as $key => $label)
@@ -45,7 +45,7 @@
                             href="{{ route('anime', ['status' => $key]) }}"
                             data-tab="{{ $key }}"
                             @if ($active) aria-current="page" @endif
-                            class="shrink-0 rounded-md px-3 py-2 font-mono text-xs uppercase tracking-wider transition {{ $active ? 'bg-ink text-white' : 'text-ink/70 hover:bg-ink/5 hover:text-ink' }}"
+                            class="shrink-0 rounded-md px-3 py-2 font-mono text-xs uppercase tracking-wider transition {{ $active ? 'bg-ink text-paper' : 'text-ink/70 hover:bg-ink/5 hover:text-ink' }}"
                         >
                             {{ __($label) }}
                             <span class="opacity-60">{{ $counts[$key] }}</span>
@@ -61,9 +61,9 @@
                             <div class="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
                                 @foreach ($entries as $entry)
                                     <a href="{{ $entry->malUrl() }}" target="_blank" rel="noopener" style="--i: {{ min($loop->index, 15) }}" class="card-lift group flex flex-col overflow-hidden rounded-md border border-ink/10 bg-sand">
-                                        <div class="relative aspect-[225/320] bg-ink/5">
+                                        <div class="dither relative aspect-[225/320] bg-ink/5">
                                             @if ($entry->image_url)
-                                                <img src="{{ $entry->image_url }}" alt="" loading="lazy" class="absolute inset-0 h-full w-full object-cover transition group-hover:opacity-90" onerror="this.style.display='none'">
+                                                <img src="{{ $entry->image_url }}" alt="" loading="lazy" class="absolute inset-0 h-full w-full object-cover" onerror="this.style.display='none'">
                                             @endif
 
                                             @if ($entry->score)

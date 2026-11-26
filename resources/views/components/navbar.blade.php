@@ -21,7 +21,7 @@
           <img src="{{ asset('img/TheOneGreenBearLogo.png') }}" alt="{{ config('app.name') }}" class="h-10 w-auto">
         </a>
         @php
-          // Small, widely spaced uppercase links; the current page gets a red underline.
+          // Small, widely spaced uppercase links; the current page gets an accent underline.
           $navLink = fn (bool $active) => 'px-3 py-2 font-mono text-xs uppercase tracking-[0.2em] transition '
               .($active ? 'text-ink underline decoration-azuki decoration-2 underline-offset-8' : 'text-ink/60 hover:text-ink');
         @endphp
@@ -48,7 +48,7 @@
           @else
               <a href="{{ route('login') }}" class="hidden sm:inline-block px-5 py-1.5 font-mono text-xs uppercase tracking-[0.2em] text-ink/60 hover:text-ink transition">Log in</a>
               @if (Route::has('register'))
-                  <a href="{{ route('register') }}" class="hidden sm:inline-block px-5 py-2 font-mono text-xs uppercase tracking-[0.2em] text-white bg-azuki rounded-sm hover:bg-azuki-dark transition">Register</a>
+                  <a href="{{ route('register') }}" class="hidden sm:inline-block px-5 py-2 font-mono text-xs uppercase tracking-[0.2em] text-paper bg-azuki rounded-sm hover:bg-azuki-dark transition">Register</a>
               @endif
           @endauth
       </div>

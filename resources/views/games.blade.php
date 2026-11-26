@@ -39,8 +39,8 @@
                         @foreach ($recent as $game)
                             <a href="{{ $game->storeUrl() }}" target="_blank" rel="noopener" class="card-lift group overflow-hidden rounded-md border border-ink/10 bg-sand">
                                 {{-- Sand placeholder keeps the card shape when Steam has no header image. --}}
-                                <div class="aspect-[460/215] w-full bg-sand-dark">
-                                    <img src="{{ $game->headerImageUrl() }}" alt="" loading="lazy" class="h-full w-full object-cover transition group-hover:opacity-90" onerror="this.style.visibility='hidden'">
+                                <div class="dither aspect-[460/215] w-full bg-sand-dark">
+                                    <img src="{{ $game->headerImageUrl() }}" alt="" loading="lazy" class="h-full w-full object-cover" onerror="this.style.visibility='hidden'">
                                 </div>
                                 <div class="p-3 font-mono">
                                     <p class="truncate text-sm text-ink">{{ $game->name }}</p>

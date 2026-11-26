@@ -1,17 +1,19 @@
+// Home page: one wheel step moves to the next or previous section.
+// Where the browser supports View Transitions, the move is a cinematic dissolve: the current scene
+// blurs, pushes in and fades out while the next one comes up out of a blur (styles under
+// "Scene transitions" in app.css). Elsewhere, or with reduced motion, it's a quick smooth scroll.
 document.addEventListener('DOMContentLoaded', () => {
     const container = document.getElementById('scroll-container');
     if (!container) return;
 
     let isScrolling = false;
 
-    // Only mark top-level sections to avoid nested matches.
-    const sections = Array.from(
-        container.querySelectorAll(':scope > .h-full.w-full, :scope > section.relative')
-    );
+    // Snap points are the container's direct children marked with data-snap (not styling classes,
+    // which change with the design).
+    const sections = Array.from(container.querySelectorAll(':scope > [data-snap]'));
 
-    sections.forEach((el, index) => {
-        el.setAttribute('data-section', index);
-    });
+    const canDissolve = () => typeof document.startViewTransition === 'function'
+        && !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     function getCurrentSectionIndex() {
         let index = 0;
@@ -54,15 +56,43 @@ document.addEventListener('DOMContentLoaded', () => {
         requestAnimationFrame(animate);
     }
 
-    container.addEventListener('wheel', (e) => {
-        if (isScrolling) return;
-        e.preventDefault();
+    function dissolveToSection(targetSection) {
+        const section = sections[targetSection];
+        const root = document.documentElement;
 
-        isScrolling = true;
+        root.classList.add('scene-transition');
+
+        // The browser snapshots the current view, we jump instantly underneath it, then the CSS
+        // dissolves the old snapshot into the new one.
+        const transition = document.startViewTransition(() => {
+            container.scrollTo({ top: section.offsetTop, behavior: 'instant' });
+        });
+
+        transition.finished.finally(() => {
+            root.classList.remove('scene-transition');
+            // A short pause so the tail of a trackpad swipe doesn't trigger another scene change.
+            setTimeout(() => { isScrolling = false; }, 150);
+        });
+    }
+
+    container.addEventListener('wheel', (e) => {
+        e.preventDefault();
+        if (isScrolling) return;
+
         const baseIndex = getCurrentSectionIndex();
         let nextIndex = baseIndex + (e.deltaY > 0 ? 1 : -1);
         nextIndex = Math.max(0, Math.min(nextIndex, sections.length - 1));
 
-        smoothScrollToSection(nextIndex);
+        if (nextIndex === baseIndex && Math.abs(container.scrollTop - sections[baseIndex].offsetTop) < 2) {
+            return;
+        }
+
+        isScrolling = true;
+
+        if (canDissolve()) {
+            dissolveToSection(nextIndex);
+        } else {
+            smoothScrollToSection(nextIndex);
+        }
     }, { passive: false });
 });

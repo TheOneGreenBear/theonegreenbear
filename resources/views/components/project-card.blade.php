@@ -51,7 +51,7 @@
         <div class="flex gap-2 text-[10px] uppercase tracking-wider">
             <a href="{{ $repo->html_url }}" target="_blank" rel="noopener" class="rounded-sm border border-ink/20 px-2 py-1 text-ink/70 transition hover:bg-ink/5 hover:text-ink">{{ __('Code') }}</a>
             @if ($repo->homepage)
-                <a href="{{ $repo->homepage }}" target="_blank" rel="noopener" class="rounded-sm bg-azuki px-2 py-1 text-white transition hover:bg-azuki/80">{{ __('Live site') }}</a>
+                <a href="{{ $repo->homepage }}" target="_blank" rel="noopener" class="rounded-sm bg-azuki px-2 py-1 text-paper transition hover:bg-azuki/80">{{ __('Live site') }}</a>
             @endif
         </div>
     </div>

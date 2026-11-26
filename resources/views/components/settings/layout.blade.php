@@ -17,7 +17,7 @@
                 href="{{ route($link['route']) }}"
                 wire:navigate
                 @if ($active) aria-current="page" @endif
-                class="shrink-0 rounded-md px-3 py-2 font-mono text-sm uppercase tracking-wider transition {{ $active ? 'bg-ink text-white' : 'text-ink/70 hover:bg-ink/5 hover:text-ink' }}"
+                class="shrink-0 rounded-md px-3 py-2 font-mono text-sm uppercase tracking-wider transition {{ $active ? 'bg-ink text-paper' : 'text-ink/70 hover:bg-ink/5 hover:text-ink' }}"
             >{{ $link['label'] }}</a>
         @endforeach
     </nav>
