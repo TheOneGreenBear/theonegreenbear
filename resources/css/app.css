@@ -9,8 +9,8 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-    /* Heavy display face for big headings and tile numbers (loaded on pages that use it). */
-    --font-display: 'Archivo Black', 'Arial Black', ui-sans-serif, system-ui, sans-serif;
+    /* High-contrast editorial serif for big headings and tile numbers (loaded on pages that use it). */
+    --font-display: 'Bodoni Moda', 'Didot', 'Bodoni 72', Georgia, serif;
 
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji', SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace;
 
@@ -26,14 +26,15 @@
     --color-zinc-900: #171717;
     --color-zinc-950: #0a0a0a;
 
-    /* Site palette (light, Azuki-inspired): a warm greige page ("paper") with lighter cards ("sand")
-       that lift off it, charcoal ink and a brick-red accent. */
-    --color-paper: #e6e1d8;
-    --color-sand: #f7f4ee;
-    --color-sand-dark: #eeeae2;
-    --color-ink: #333333;
-    --color-azuki: #bb3f3f;
-    --color-azuki-dark: #8f2e2e;
+    /* Site palette (cinematic edit): fog-grey paper, slightly lighter cards ("sand"), near-black
+       ink and a dark red accent used sparingly. The names predate the theme; "azuki" is simply the
+       accent. Text on an accent or ink background uses paper. */
+    --color-paper: #d8dad1;
+    --color-sand: #e3e4dd;
+    --color-sand-dark: #cdd0c6;
+    --color-ink: #141414;
+    --color-azuki: #9e1b1b;
+    --color-azuki-dark: #761313;
 
     --color-azukigray-50: #fafafa;
     --color-azukigray-400: #a3a3a3;
@@ -83,31 +84,231 @@ select:focus[data-flux-control] {
 }
 
 /*
- * Background: Japanese wave pattern (seigaiha) in charcoal line on sand.
- * Generated SVG, no image files. Colours match --color-sand / --color-ink / --color-azuki.
+ * Backdrop around the window: fog-grey paper with soft, out-of-focus shapes drifting through it,
+ * like the blurred layers behind the type in an edit.
  */
-.bg-seigaiha {
-    background-color: #ebe7e0;
-    background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'60'%20height%3D'30'%3E%3Ccircle%20cx%3D'30'%20cy%3D'0'%20r%3D'30'%20fill%3D'%23EBE7E0'%20stroke%3D'%23333333'%20stroke-opacity%3D'0.16'%20stroke-width%3D'1.2'%2F%3E%3Ccircle%20cx%3D'30'%20cy%3D'0'%20r%3D'24'%20fill%3D'%23EBE7E0'%20stroke%3D'%23333333'%20stroke-opacity%3D'0.16'%20stroke-width%3D'1.2'%2F%3E%3Ccircle%20cx%3D'30'%20cy%3D'0'%20r%3D'18'%20fill%3D'%23EBE7E0'%20stroke%3D'%23333333'%20stroke-opacity%3D'0.16'%20stroke-width%3D'1.2'%2F%3E%3Ccircle%20cx%3D'30'%20cy%3D'0'%20r%3D'12'%20fill%3D'%23EBE7E0'%20stroke%3D'%23333333'%20stroke-opacity%3D'0.16'%20stroke-width%3D'1.2'%2F%3E%3Ccircle%20cx%3D'30'%20cy%3D'0'%20r%3D'6'%20fill%3D'%23EBE7E0'%20stroke%3D'%23333333'%20stroke-opacity%3D'0.16'%20stroke-width%3D'1.2'%2F%3E%3Ccircle%20cx%3D'0'%20cy%3D'15'%20r%3D'30'%20fill%3D'%23EBE7E0'%20stroke%3D'%23333333'%20stroke-opacity%3D'0.16'%20stroke-width%3D'1.2'%2F%3E%3Ccircle%20cx%3D'0'%20cy%3D'15'%20r%3D'24'%20fill%3D'%23EBE7E0'%20stroke%3D'%23333333'%20stroke-opacity%3D'0.16'%20stroke-width%3D'1.2'%2F%3E%3Ccircle%20cx%3D'0'%20cy%3D'15'%20r%3D'18'%20fill%3D'%23EBE7E0'%20stroke%3D'%23333333'%20stroke-opacity%3D'0.16'%20stroke-width%3D'1.2'%2F%3E%3Ccircle%20cx%3D'0'%20cy%3D'15'%20r%3D'12'%20fill%3D'%23EBE7E0'%20stroke%3D'%23333333'%20stroke-opacity%3D'0.16'%20stroke-width%3D'1.2'%2F%3E%3Ccircle%20cx%3D'0'%20cy%3D'15'%20r%3D'6'%20fill%3D'%23EBE7E0'%20stroke%3D'%23333333'%20stroke-opacity%3D'0.16'%20stroke-width%3D'1.2'%2F%3E%3Ccircle%20cx%3D'60'%20cy%3D'15'%20r%3D'30'%20fill%3D'%23EBE7E0'%20stroke%3D'%23333333'%20stroke-opacity%3D'0.16'%20stroke-width%3D'1.2'%2F%3E%3Ccircle%20cx%3D'60'%20cy%3D'15'%20r%3D'24'%20fill%3D'%23EBE7E0'%20stroke%3D'%23333333'%20stroke-opacity%3D'0.16'%20stroke-width%3D'1.2'%2F%3E%3Ccircle%20cx%3D'60'%20cy%3D'15'%20r%3D'18'%20fill%3D'%23EBE7E0'%20stroke%3D'%23333333'%20stroke-opacity%3D'0.16'%20stroke-width%3D'1.2'%2F%3E%3Ccircle%20cx%3D'60'%20cy%3D'15'%20r%3D'12'%20fill%3D'%23EBE7E0'%20stroke%3D'%23333333'%20stroke-opacity%3D'0.16'%20stroke-width%3D'1.2'%2F%3E%3Ccircle%20cx%3D'60'%20cy%3D'15'%20r%3D'6'%20fill%3D'%23EBE7E0'%20stroke%3D'%23333333'%20stroke-opacity%3D'0.16'%20stroke-width%3D'1.2'%2F%3E%3Ccircle%20cx%3D'30'%20cy%3D'30'%20r%3D'30'%20fill%3D'%23EBE7E0'%20stroke%3D'%23333333'%20stroke-opacity%3D'0.16'%20stroke-width%3D'1.2'%2F%3E%3Ccircle%20cx%3D'30'%20cy%3D'30'%20r%3D'24'%20fill%3D'%23EBE7E0'%20stroke%3D'%23333333'%20stroke-opacity%3D'0.16'%20stroke-width%3D'1.2'%2F%3E%3Ccircle%20cx%3D'30'%20cy%3D'30'%20r%3D'18'%20fill%3D'%23EBE7E0'%20stroke%3D'%23333333'%20stroke-opacity%3D'0.16'%20stroke-width%3D'1.2'%2F%3E%3Ccircle%20cx%3D'30'%20cy%3D'30'%20r%3D'12'%20fill%3D'%23EBE7E0'%20stroke%3D'%23333333'%20stroke-opacity%3D'0.16'%20stroke-width%3D'1.2'%2F%3E%3Ccircle%20cx%3D'30'%20cy%3D'30'%20r%3D'6'%20fill%3D'%23EBE7E0'%20stroke%3D'%23333333'%20stroke-opacity%3D'0.16'%20stroke-width%3D'1.2'%2F%3E%3C%2Fsvg%3E");
-    background-size: 60px 30px;
-}
-
-/* Home hero: ink mountains in front of a red sun, on a slightly lighter wave pattern. */
-.bg-hero-sun {
-    background-color: #ebe7e0;
+.bg-fog {
+    background-color: #c9ccc2;
     background-image:
-        url("data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%201200%20300'%20preserveAspectRatio%3D'none'%3E%20%3Cpath%20d%3D'M0%20300%20L0%20190%20L140%20120%20L260%20175%20L420%2070%20L560%20160%20L700%2095%20L860%20180%20L1010%20110%20L1200%20185%20L1200%20300%20Z'%20fill%3D'%23333333'%20fill-opacity%3D'0.18'%2F%3E%20%3Cpath%20d%3D'M0%20300%20L0%20230%20L180%20170%20L330%20225%20L520%20150%20L690%20220%20L880%20160%20L1050%20230%20L1200%20200%20L1200%20300%20Z'%20fill%3D'%23333333'%20fill-opacity%3D'0.3'%2F%3E%20%3Cpath%20d%3D'M0%20300%20L0%20265%20L240%20225%20L470%20270%20L720%20230%20L960%20272%20L1200%20240%20L1200%20300%20Z'%20fill%3D'%23333333'%20fill-opacity%3D'0.55'%2F%3E%20%3C%2Fsvg%3E"),
-        radial-gradient(circle min(300px, 40vw) at 50% 55%, var(--color-azuki) 0 99%, transparent 100%),
-        url("data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'60'%20height%3D'30'%3E%3Ccircle%20cx%3D'30'%20cy%3D'0'%20r%3D'30'%20fill%3D'%23EBE7E0'%20stroke%3D'%23333333'%20stroke-opacity%3D'0.12'%20stroke-width%3D'1.2'%2F%3E%3Ccircle%20cx%3D'30'%20cy%3D'0'%20r%3D'24'%20fill%3D'%23EBE7E0'%20stroke%3D'%23333333'%20stroke-opacity%3D'0.12'%20stroke-width%3D'1.2'%2F%3E%3Ccircle%20cx%3D'30'%20cy%3D'0'%20r%3D'18'%20fill%3D'%23EBE7E0'%20stroke%3D'%23333333'%20stroke-opacity%3D'0.12'%20stroke-width%3D'1.2'%2F%3E%3Ccircle%20cx%3D'30'%20cy%3D'0'%20r%3D'12'%20fill%3D'%23EBE7E0'%20stroke%3D'%23333333'%20stroke-opacity%3D'0.12'%20stroke-width%3D'1.2'%2F%3E%3Ccircle%20cx%3D'30'%20cy%3D'0'%20r%3D'6'%20fill%3D'%23EBE7E0'%20stroke%3D'%23333333'%20stroke-opacity%3D'0.12'%20stroke-width%3D'1.2'%2F%3E%3Ccircle%20cx%3D'0'%20cy%3D'15'%20r%3D'30'%20fill%3D'%23EBE7E0'%20stroke%3D'%23333333'%20stroke-opacity%3D'0.12'%20stroke-width%3D'1.2'%2F%3E%3Ccircle%20cx%3D'0'%20cy%3D'15'%20r%3D'24'%20fill%3D'%23EBE7E0'%20stroke%3D'%23333333'%20stroke-opacity%3D'0.12'%20stroke-width%3D'1.2'%2F%3E%3Ccircle%20cx%3D'0'%20cy%3D'15'%20r%3D'18'%20fill%3D'%23EBE7E0'%20stroke%3D'%23333333'%20stroke-opacity%3D'0.12'%20stroke-width%3D'1.2'%2F%3E%3Ccircle%20cx%3D'0'%20cy%3D'15'%20r%3D'12'%20fill%3D'%23EBE7E0'%20stroke%3D'%23333333'%20stroke-opacity%3D'0.12'%20stroke-width%3D'1.2'%2F%3E%3Ccircle%20cx%3D'0'%20cy%3D'15'%20r%3D'6'%20fill%3D'%23EBE7E0'%20stroke%3D'%23333333'%20stroke-opacity%3D'0.12'%20stroke-width%3D'1.2'%2F%3E%3Ccircle%20cx%3D'60'%20cy%3D'15'%20r%3D'30'%20fill%3D'%23EBE7E0'%20stroke%3D'%23333333'%20stroke-opacity%3D'0.12'%20stroke-width%3D'1.2'%2F%3E%3Ccircle%20cx%3D'60'%20cy%3D'15'%20r%3D'24'%20fill%3D'%23EBE7E0'%20stroke%3D'%23333333'%20stroke-opacity%3D'0.12'%20stroke-width%3D'1.2'%2F%3E%3Ccircle%20cx%3D'60'%20cy%3D'15'%20r%3D'18'%20fill%3D'%23EBE7E0'%20stroke%3D'%23333333'%20stroke-opacity%3D'0.12'%20stroke-width%3D'1.2'%2F%3E%3Ccircle%20cx%3D'60'%20cy%3D'15'%20r%3D'12'%20fill%3D'%23EBE7E0'%20stroke%3D'%23333333'%20stroke-opacity%3D'0.12'%20stroke-width%3D'1.2'%2F%3E%3Ccircle%20cx%3D'60'%20cy%3D'15'%20r%3D'6'%20fill%3D'%23EBE7E0'%20stroke%3D'%23333333'%20stroke-opacity%3D'0.12'%20stroke-width%3D'1.2'%2F%3E%3Ccircle%20cx%3D'30'%20cy%3D'30'%20r%3D'30'%20fill%3D'%23EBE7E0'%20stroke%3D'%23333333'%20stroke-opacity%3D'0.12'%20stroke-width%3D'1.2'%2F%3E%3Ccircle%20cx%3D'30'%20cy%3D'30'%20r%3D'24'%20fill%3D'%23EBE7E0'%20stroke%3D'%23333333'%20stroke-opacity%3D'0.12'%20stroke-width%3D'1.2'%2F%3E%3Ccircle%20cx%3D'30'%20cy%3D'30'%20r%3D'18'%20fill%3D'%23EBE7E0'%20stroke%3D'%23333333'%20stroke-opacity%3D'0.12'%20stroke-width%3D'1.2'%2F%3E%3Ccircle%20cx%3D'30'%20cy%3D'30'%20r%3D'12'%20fill%3D'%23EBE7E0'%20stroke%3D'%23333333'%20stroke-opacity%3D'0.12'%20stroke-width%3D'1.2'%2F%3E%3Ccircle%20cx%3D'30'%20cy%3D'30'%20r%3D'6'%20fill%3D'%23EBE7E0'%20stroke%3D'%23333333'%20stroke-opacity%3D'0.12'%20stroke-width%3D'1.2'%2F%3E%3C%2Fsvg%3E");
-    background-size: 100% 32%, auto, 60px 30px;
-    background-position: bottom, center, top left;
-    background-repeat: no-repeat, no-repeat, repeat;
+        radial-gradient(22% 16% at 18% 22%, rgb(20 20 20 / 0.2), transparent 70%),
+        radial-gradient(16% 26% at 86% 70%, rgb(20 20 20 / 0.16), transparent 70%),
+        radial-gradient(30% 20% at 60% 6%, rgb(255 255 255 / 0.55), transparent 70%),
+        radial-gradient(25% 18% at 30% 92%, rgb(255 255 255 / 0.45), transparent 70%),
+        linear-gradient(170deg, #d6d8cf, #c4c7bd 60%, #cfd1c7);
+    background-size: 140% 140%;
+    animation: fog-drift 50s ease-in-out infinite alternate;
 }
 
-/* Tall, narrow screens: keep the mountains low instead of stretching them into spikes. */
-@media (max-width: 767px) {
-    .bg-hero-sun {
-        background-size: 100% 18%, auto, 60px 30px;
+@keyframes fog-drift {
+    from {
+        background-position: 0% 0%;
+    }
+    to {
+        background-position: 100% 100%;
+    }
+}
+
+/* The site window: a hairline ink frame with a soft shadow underneath. */
+.window-frame {
+    box-shadow:
+        0 0 0 1px rgb(20 20 20 / 0.35),
+        0 30px 60px -30px rgb(20 20 20 / 0.4);
+}
+
+/*
+ * Texture over the whole page, in two layers that sit above everything but never catch clicks:
+ *  - ::before  a still, fine dot dither (like a print screen);
+ *  - ::after   high-contrast film grain that jitters to a new position ~12 times a second, like
+ *              the noise in a film transfer. It's oversized so the jumps never show an edge.
+ */
+.grain::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    pointer-events: none;
+    background-image: radial-gradient(circle, rgb(20 20 20 / 0.09) 0.6px, transparent 1px);
+    background-size: 3px 3px;
+    mix-blend-mode: multiply;
+}
+
+.grain::after {
+    content: '';
+    position: fixed;
+    inset: -120px;
+    z-index: 101;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncR type='linear' slope='2.2' intercept='-0.6'/%3E%3CfeFuncG type='linear' slope='2.2' intercept='-0.6'/%3E%3CfeFuncB type='linear' slope='2.2' intercept='-0.6'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
+    background-size: 220px 220px;
+    opacity: 0.55;
+    mix-blend-mode: overlay;
+    animation: film-grain 0.8s steps(1, end) infinite;
+}
+
+@keyframes film-grain {
+    0% { transform: translate(0, 0); }
+    10% { transform: translate(-37px, 22px); }
+    20% { transform: translate(51px, -64px); }
+    30% { transform: translate(-83px, -12px); }
+    40% { transform: translate(19px, 77px); }
+    50% { transform: translate(-58px, 45px); }
+    60% { transform: translate(94px, 8px); }
+    70% { transform: translate(-11px, -91px); }
+    80% { transform: translate(66px, 59px); }
+    90% { transform: translate(-102px, 31px); }
+}
+
+/* Home hero: plain fog with a pale bloom behind the bear. */
+.bg-hero-fog {
+    isolation: isolate;
+    background-color: var(--color-paper);
+    background-image:
+        radial-gradient(38% 50% at 72% 52%, rgb(255 255 255 / 0.6), transparent 70%),
+        radial-gradient(30% 30% at 15% 85%, rgb(20 20 20 / 0.07), transparent 70%);
+}
+
+/* The bear stays in its own green (the one splash of colour), with a blurred grey ghost of it
+   drifting behind. */
+.bear-ghost {
+    filter: grayscale(1) blur(22px);
+    opacity: 0.35;
+}
+
+/* ---------------------------------------------------------------------------------------------
+ * Home hero HUD effects (markup in welcome.blade.php and components/hud-lines, JS in Hud.js)
+ * ------------------------------------------------------------------------------------------- */
+
+/* Solid lines draw themselves in; they carry pathLength="1" so 1 means "the whole line". */
+.hud-draw {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    animation: hud-draw 1.4s cubic-bezier(0.6, 0, 0.2, 1) forwards;
+    animation-delay: var(--d, 0s);
+}
+
+@keyframes hud-draw {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+/* Nodes, dotted runs and labels fade in. "backwards" holds them hidden during the delay, then hands
+   back to the element's own opacity once done. */
+.hud-fade {
+    animation: hud-fade 0.6s ease backwards;
+    animation-delay: var(--d, 0s);
+}
+
+@keyframes hud-fade {
+    from {
+        opacity: 0;
+    }
+}
+
+.hud-blink {
+    animation: hud-blink 1.6s steps(1, end) infinite;
+    animation-delay: var(--d, 0s);
+}
+
+@keyframes hud-blink {
+    50% {
+        opacity: 0;
+    }
+}
+
+/* A horizontal rule that draws itself in from the left (page headers). */
+.hud-rule {
+    animation: hud-rule 1.1s cubic-bezier(0.6, 0, 0.2, 1) 0.2s backwards;
+}
+
+@keyframes hud-rule {
+    from {
+        transform: scaleX(0);
+    }
+}
+
+/* A pale band that sweeps down the hero every few seconds. */
+.hud-scan {
+    background: linear-gradient(to bottom, transparent, rgb(255 255 255 / 0.35) 50%, transparent);
+    border-bottom: 1px solid rgb(20 20 20 / 0.08);
+    transform: translateY(-100%);
+    animation: hud-scan 8s cubic-bezier(0.5, 0, 0.5, 1) 2s infinite;
+}
+
+@keyframes hud-scan {
+    0% {
+        transform: translateY(-100%);
+    }
+    45%,
+    100% {
+        transform: translateY(100vh);
+    }
+}
+
+/* Crosshair: hidden until the mouse is over the hero; the square at the crossing slowly turns. */
+.hud-crosshair {
+    opacity: 0;
+    transition: opacity 300ms ease;
+}
+
+[data-crosshair-area].is-tracking .hud-crosshair {
+    opacity: 1;
+}
+
+.hud-reticle {
+    animation: hud-spin 8s linear infinite;
+}
+
+@keyframes hud-spin {
+    to {
+        rotate: 1turn;
+    }
+}
+
+/* The title glitches briefly every few seconds: a red/black split and a sideways jolt. */
+.glitch-title {
+    animation: title-glitch 7s steps(1, end) 3s infinite;
+}
+
+@keyframes title-glitch {
+    0%,
+    92%,
+    100% {
+        text-shadow: none;
+        transform: none;
+    }
+    93% {
+        text-shadow: 3px 0 var(--color-azuki), -3px 0 rgb(20 20 20 / 0.35);
+        transform: translateX(-3px);
+    }
+    95% {
+        text-shadow: -2px 0 var(--color-azuki), 2px 0 rgb(20 20 20 / 0.35);
+        transform: translateX(2px) skewX(-4deg);
+    }
+    97% {
+        text-shadow: 1px 0 var(--color-azuki);
+        transform: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .bg-fog,
+    .grain::after,
+    .hud-rule,
+    .hud-blink,
+    .hud-reticle,
+    .glitch-title {
+        animation: none;
+    }
+
+    .hud-draw,
+    .hud-fade {
+        animation: none;
+        stroke-dashoffset: 0;
+    }
+
+    .hud-scan {
+        display: none;
     }
 }
 
@@ -131,6 +332,36 @@ select:focus[data-flux-control] {
     view-transition-name: site-nav;
 }
 
+/*
+ * Scene transitions: scrolling between home page sections dissolves like a cut in a film edit
+ * (resources/js/SmoothScroll.js adds .scene-transition while it runs). The outgoing scene pushes
+ * in, blurs and drains to grey; the next one rises out of a soft blur. Both stay at or above full
+ * size so no edges show.
+ */
+html.scene-transition::view-transition-old(root) {
+    animation: scene-out 750ms cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+html.scene-transition::view-transition-new(root) {
+    animation: scene-in 950ms cubic-bezier(0.2, 0, 0.2, 1) both;
+}
+
+@keyframes scene-out {
+    to {
+        opacity: 0;
+        filter: blur(10px) grayscale(1);
+        transform: scale(1.05);
+    }
+}
+
+@keyframes scene-in {
+    from {
+        opacity: 0;
+        filter: blur(14px);
+        transform: scale(1.03);
+    }
+}
+
 /* Cards lift slightly on hover. */
 .card-lift {
     transition: transform 250ms ease, box-shadow 250ms ease, border-color 250ms ease;
@@ -139,7 +370,7 @@ select:focus[data-flux-control] {
 .card-lift:hover {
     transform: translateY(-4px);
     border-color: var(--color-azuki);
-    box-shadow: 0 14px 28px -14px rgb(51 51 51 / 0.35);
+    box-shadow: 0 14px 28px -14px rgb(20 20 20 / 0.45);
 }
 
 /* Tab panels: cards rise in one after another (--i is set per card). "backwards" only applies the
@@ -172,6 +403,72 @@ select:focus[data-flux-control] {
     }
 }
 
+/*
+ * Cover art in the edit style: faded grey and dot-dithered until you hover its link, then it
+ * snaps into full colour with a short glitch jitter.
+ * Usage: <span class="dither ..."><img ...></span> inside an <a>.
+ */
+.dither {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+}
+
+.dither > img {
+    filter: grayscale(1) contrast(1.15) brightness(1.05);
+    transition: filter 400ms ease, transform 300ms ease;
+}
+
+/* Badges and other extras inside the wrapper stay above the dither. */
+.dither > :not(img) {
+    z-index: 2;
+}
+
+.dither::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background-image: radial-gradient(circle, rgb(20 20 20 / 0.35) 0.7px, transparent 1.1px);
+    background-size: 3px 3px;
+    mix-blend-mode: multiply;
+    transition: opacity 400ms ease;
+}
+
+a:hover .dither > img,
+a:focus-visible .dither > img {
+    filter: none;
+    transform: scale(1.04);
+    animation: edit-glitch 380ms steps(1, end) 1;
+}
+
+a:hover .dither::after,
+a:focus-visible .dither::after {
+    opacity: 0;
+}
+
+@keyframes edit-glitch {
+    0% { transform: scale(1.04) translate(0, 0); }
+    15% { transform: scale(1.04) translate(-4px, 1px); }
+    30% { transform: scale(1.04) translate(3px, -1px) skewX(-2deg); }
+    45% { transform: scale(1.04) translate(-2px, 0); }
+    60% { transform: scale(1.04) translate(2px, 1px); }
+    75%, 100% { transform: scale(1.04) translate(0, 0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .dither > img {
+        transition: filter 400ms ease;
+    }
+
+    a:hover .dither > img,
+    a:focus-visible .dither > img {
+        transform: none;
+        animation: none;
+    }
+}
+
 .no-scrollbar {
     -ms-overflow-style: none;
     scrollbar-width: none;
@@ -181,11 +478,11 @@ select:focus[data-flux-control] {
     display: none;
 }
 
-/* Site palette for Flux components on the framed pages: red buttons/links with white text. */
+/* Site palette for Flux components on the framed pages: red buttons/links with paper-coloured text. */
 .theme-greenbear {
     --color-accent: var(--color-azuki);
     --color-accent-content: var(--color-azuki);
-    --color-accent-foreground: #ffffff;
+    --color-accent-foreground: var(--color-paper);
 }
 
 #parallax-logo {

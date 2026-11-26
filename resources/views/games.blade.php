@@ -2,25 +2,15 @@
 
 <x-layouts.site :title="__('Games')">
     <x-glass-panel class="w-full max-w-6xl p-6 md:p-10">
-        <div class="mb-8 flex flex-wrap items-end justify-between gap-4">
-            <div>
-                <h1 class="font-display text-3xl uppercase leading-none text-ink md:text-5xl">{{ __('Games') }} <span class="text-azuki">//</span></h1>
-                <p class="mt-3 font-mono text-[11px] uppercase tracking-[0.25em] text-ink/60">{{ __('What I\'ve been playing, live from Steam.') }}</p>
-            </div>
-
-            @if ($gameCount)
-                <dl class="flex gap-3 font-mono">
-                    <div class="rounded-md border border-ink/10 bg-ink/5 px-4 py-2">
-                        <dt class="text-[10px] uppercase tracking-wider text-ink/50">{{ __('Games') }}</dt>
-                        <dd class="text-lg text-ink">{{ number_format($gameCount) }}</dd>
-                    </div>
-                    <div class="rounded-md border border-ink/10 bg-ink/5 px-4 py-2">
-                        <dt class="text-[10px] uppercase tracking-wider text-ink/50">{{ __('Hours played') }}</dt>
-                        <dd class="text-lg text-ink">{{ number_format($totalMinutes / 60) }}</dd>
-                    </div>
-                </dl>
-            @endif
-        </div>
+        <x-file-header
+            number="02"
+            :title="__('Games')"
+            :subtitle="__('What I\'ve been playing, live from Steam.')"
+            :stats="$gameCount ? [
+                __('Games') => number_format($gameCount),
+                __('Hours played') => number_format($totalMinutes / 60),
+            ] : []"
+        />
 
         @if (! $gameCount)
             <div class="rounded-md border border-dashed border-ink/20 p-10 text-center font-mono">
@@ -39,8 +29,8 @@
                         @foreach ($recent as $game)
                             <a href="{{ $game->storeUrl() }}" target="_blank" rel="noopener" class="card-lift group overflow-hidden rounded-md border border-ink/10 bg-sand">
                                 {{-- Sand placeholder keeps the card shape when Steam has no header image. --}}
-                                <div class="aspect-[460/215] w-full bg-sand-dark">
-                                    <img src="{{ $game->headerImageUrl() }}" alt="" loading="lazy" class="h-full w-full object-cover transition group-hover:opacity-90" onerror="this.style.visibility='hidden'">
+                                <div class="dither aspect-[460/215] w-full bg-sand-dark">
+                                    <img src="{{ $game->headerImageUrl() }}" alt="" loading="lazy" class="h-full w-full object-cover" onerror="this.style.visibility='hidden'">
                                 </div>
                                 <div class="p-3 font-mono">
                                     <p class="truncate text-sm text-ink">{{ $game->name }}</p>

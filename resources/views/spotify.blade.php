@@ -1,9 +1,10 @@
 <x-layouts.site :title="__('Spotify')">
     <x-glass-panel class="w-full max-w-6xl p-6 md:p-10">
-        <div class="mb-8">
-            <h1 class="font-display text-3xl uppercase leading-none text-ink md:text-5xl">{{ __('Spotify') }} <span class="text-azuki">//</span></h1>
-            <p class="mt-3 font-mono text-[11px] uppercase tracking-[0.25em] text-ink/60">{{ __('What I\'m listening to, live from Spotify.') }}</p>
-        </div>
+        <x-file-header
+            number="04"
+            :title="__('Spotify')"
+            :subtitle="__('What I\'m listening to, live from Spotify.')"
+        />
 
         @if (session('spotify_status'))
             <p class="mb-6 rounded-md border border-azuki/40 bg-azuki/10 p-3 font-mono text-xs text-azuki">{{ session('spotify_status') }}</p>
@@ -27,7 +28,7 @@
 
                 @if ($configured)
                     <div class="flex items-center gap-2">
-                        <a href="{{ route('spotify.connect') }}" class="rounded-md bg-azuki px-3 py-2 uppercase tracking-wider text-white transition hover:bg-azuki/80">
+                        <a href="{{ route('spotify.connect') }}" class="rounded-md bg-azuki px-3 py-2 uppercase tracking-wider text-paper transition hover:bg-azuki/80">
                             {{ $connected ? __('Reconnect') : __('Connect Spotify') }}
                         </a>
                         @if ($connected)
@@ -52,7 +53,9 @@
                 @php($track = $listening['track'])
                 <a href="{{ $track['url'] }}" target="_blank" rel="noopener" class="group mb-10 flex items-center gap-5 rounded-md border border-ink/10 bg-sand p-4 transition hover:border-azuki">
                     @if ($track['image'])
-                        <img src="{{ $track['image'] }}" alt="" class="size-24 shrink-0 rounded-sm object-cover md:size-32">
+                        <span class="dither block size-24 shrink-0 rounded-sm md:size-32">
+                            <img src="{{ $track['image'] }}" alt="" class="h-full w-full object-cover">
+                        </span>
                     @endif
                     <div class="min-w-0 font-mono">
                         <p class="flex items-center gap-2 text-[10px] uppercase tracking-wider text-azuki">
@@ -100,7 +103,7 @@
                     <div class="grid grid-cols-3 gap-4 sm:grid-cols-5 lg:grid-cols-3 xl:grid-cols-5">
                         @forelse ($data['top_artists'] ?? [] as $artist)
                             <a href="{{ $artist['url'] }}" target="_blank" rel="noopener" class="group text-center font-mono">
-                                <span class="mx-auto block aspect-square w-full overflow-hidden rounded-full border border-ink/10 bg-ink/5 transition group-hover:border-azuki">
+                                <span class="dither mx-auto block aspect-square w-full overflow-hidden rounded-full border border-ink/10 bg-ink/5 transition group-hover:border-azuki">
                                     @if ($artist['image'])
                                         <img src="{{ $artist['image'] }}" alt="" loading="lazy" class="h-full w-full object-cover">
                                     @endif
@@ -121,9 +124,9 @@
                     <div class="no-scrollbar flex gap-4 overflow-x-auto pb-2">
                         @foreach ($data['recent'] as $track)
                             <a href="{{ $track['url'] }}" target="_blank" rel="noopener" class="w-32 shrink-0 font-mono">
-                                <span class="block aspect-square overflow-hidden rounded-sm bg-ink/5">
+                                <span class="dither block aspect-square overflow-hidden rounded-sm bg-ink/5">
                                     @if ($track['image'])
-                                        <img src="{{ $track['image'] }}" alt="" loading="lazy" class="h-full w-full object-cover transition hover:opacity-80">
+                                        <img src="{{ $track['image'] }}" alt="" loading="lazy" class="h-full w-full object-cover">
                                     @endif
                                 </span>
                                 <span class="mt-2 block truncate text-xs text-ink">{{ $track['name'] }}</span>
@@ -144,7 +147,7 @@
                     <div class="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
                         @foreach ($data['playlists'] as $playlist)
                             <a href="{{ $playlist['url'] }}" target="_blank" rel="noopener" class="group font-mono">
-                                <span class="block aspect-square overflow-hidden rounded-md border border-ink/10 bg-ink/5 transition group-hover:border-azuki">
+                                <span class="dither block aspect-square overflow-hidden rounded-md border border-ink/10 bg-ink/5 transition group-hover:border-azuki">
                                     @if ($playlist['image'])
                                         <img src="{{ $playlist['image'] }}" alt="" loading="lazy" class="h-full w-full object-cover">
                                     @endif
