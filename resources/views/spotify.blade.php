@@ -1,9 +1,10 @@
 <x-layouts.site :title="__('Spotify')">
     <x-glass-panel class="w-full max-w-6xl p-6 md:p-10">
-        <div class="mb-8">
-            <h1 class="font-display text-3xl uppercase leading-none text-ink md:text-5xl">{{ __('Spotify') }} <span class="text-azuki">//</span></h1>
-            <p class="mt-3 font-mono text-[11px] uppercase tracking-[0.25em] text-ink/60">{{ __('What I\'m listening to, live from Spotify.') }}</p>
-        </div>
+        <x-file-header
+            number="04"
+            :title="__('Spotify')"
+            :subtitle="__('What I\'m listening to, live from Spotify.')"
+        />
 
         @if (session('spotify_status'))
             <p class="mb-6 rounded-md border border-azuki/40 bg-azuki/10 p-3 font-mono text-xs text-azuki">{{ session('spotify_status') }}</p>
